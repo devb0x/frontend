@@ -10,7 +10,6 @@ import { NewArmyComponent } from "./components/features/new-army/new-army.compon
 import { ArmyComponent } from "./pages/army/army.component"
 import { ArmyEditComponent } from "./pages/army/army-edit/army-edit.component"
 
-import { SandboxComponent } from "./sandbox/sandbox.component"
 import {ArmyResolver} from "./resolvers/army.resolver";
 
 import {HomepageComponent} from "./pages/homepage/homepage.component";
@@ -129,10 +128,6 @@ export const routes: Routes = [
 	{
 		path: 'search-results',
 		component: SearchResultsComponent
-	},
-	{
-		path: 'sandbox',
-		component: SandboxComponent
 	},
 	{
 		path: '404',
