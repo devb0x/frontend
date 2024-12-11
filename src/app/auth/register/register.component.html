@@ -1,0 +1,106 @@
+<div class="container">
+	<div *ngIf="isLoading">
+		<h1>LOADING..</h1>
+	</div>
+	<h1 class="auth-title">Create an account</h1>
+	<form
+		*ngIf="!isLoading"
+		method="post"
+		[formGroup]="form"
+		(ngSubmit)="onRegisterUser()"
+		class="auth-form"
+	>
+		<label for="email">
+			email
+		</label>
+		<input
+			id="email"
+			type="email"
+			formControlName="email"
+			name="email"
+			required
+			email
+			placeholder="your@mail.com"
+		>
+		<div *ngIf="email" >
+			<small *ngIf="email.value === null && (email.touched || email.dirty)" class="error-message">
+				This field is required
+			</small>
+			<small *ngIf="email.value !== null && email.errors && (email.touched || email.dirty) " class="error-message" >
+				Wrong email address
+			</small>
+			<small *ngIf="userExist" class="error-message">
+				This email already exist
+			</small>
+		</div>
+		
+		<label for="username">
+			Username
+		</label>
+		<input
+			id="username"
+			type="text"
+			formControlName="username"
+			name="username"
+			required
+			(blur)="onBlurEvent()"
+		>
+		<div *ngIf="username">
+			<small *ngIf="username.value === null && (username.touched || username.dirty)" class="error-message">
+				This field is required
+			</small>
+			<small *ngIf="usernameTaken" class="error-message">
+				This username is already taken
+			</small>
+		</div>
+		
+		<label for="pwd">
+			password
+		</label>
+		<input
+			id="pwd"
+			type="password"
+			formControlName="pwd"
+			name="pwd"
+			required
+			(blur)="onBlurEvent()"
+		>
+		<div *ngIf="pwd">
+			<small *ngIf="pwd.value === null && (pwd.touched || pwd.dirty)" class="error-message">
+				This field is required
+			</small>
+		</div>
+		
+		<label for="pwdConfirm">
+			confirm password
+		</label>
+		<input
+			id="pwdConfirm"
+			type="password"
+			formControlName="pwdConfirm"
+			name="pwdConfirm"
+			required
+			(blur)="onBlurEvent()"
+		>
+		<div *ngIf="pwdConfirm">
+			<small *ngIf="pwdConfirm.value === null && (pwdConfirm.touched || pwdConfirm.dirty)" class="error-message">
+				This field is required.<br>
+			</small>
+			<small *ngIf="pwd && pwd.value !== null && (pwd.touched || pwd.dirty) && !pwdIdentical " class="error-message">
+				The passwords should be identical
+			</small>
+		</div>
+		
+		<button *ngIf="!this.isLoading" type="submit" class="submit" [disabled]="!form.valid">
+			Register
+		</button>
+	</form>
+	
+	<div class="wrapper-links">
+		<span>
+			Back to <a routerLink="/login" class="link">login.</a>
+		</span>
+	</div>
+
+</div>
+

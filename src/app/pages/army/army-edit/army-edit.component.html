@@ -1,0 +1,100 @@
+<section>
+	<div *ngIf="army$">
+		<header class="army-container__header">
+			<h1 class="army-title">{{ army$.name }}</h1>
+			<span>{{ army$.category }}</span>
+			<span>Author: {{ army$.ownerId }}</span>
+		</header>
+		
+		<form [formGroup]="armyForm" (submit)="formSubmit()">
+			<app-dropdown [iconUrl]="'../../../assets/icons/game-icons_feather.svg'">
+				<h2 class="dropdown-title">Description</h2>
+				<div class="content">
+					<textarea
+						formControlName="description"
+						rows="8"
+					>
+					</textarea>
+				</div>
+			</app-dropdown>
+			
+			<app-dropdown [iconUrl]="'../../../assets/icons/game-icons_spell-book.svg'">
+				<h2 class="dropdown-title">Lore</h2>
+				<div class="content">
+					<textarea
+						formControlName="lore"
+						rows="8"
+					>
+					</textarea>
+				</div>
+			</app-dropdown>
+			
+			<button type="button" (click)="cancelEditHandler()">Cancel</button>
+			<button type="submit">Save</button>
+		
+		</form>
+	
+	</div>
+	
+	<hr>
+	
+	<app-new-miniature
+		[armyId]="armyId"
+		(miniatureAdded)="onMiniatureAdded()"
+	></app-new-miniature>
+	
+
+	<h3>Miniatures</h3>
+	<div *ngIf="army$">
+		<div *ngIf="army$.miniatures && army$.miniatures.length > 0">
+			<ul *ngFor="let miniature of army$.miniatures">
+				<li>
+					<a routerLink="/army/{{armyId}}/miniature/edit/{{miniature._id}}">
+						{{ miniature.name }}
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div *ngIf="army$.miniatures.length === 0">
+			No miniatures yet..
+		</div>
+	</div>
+	<hr>
+	
+	<app-image-upload
+		*ngIf="army$"
+		[armyId]="army$._id"
+		(fileUploaded)="fetchArmyData()"
+		[actionType]="'army'"
+	>
+	</app-image-upload>
+	
+	<hr>
+	
+	<article *ngIf="army$">
+		<h2>Gallery</h2>
+		<div *ngIf="army$.pictures && army$.pictures.length > 0">
+			<div *ngFor="let picture of army$.pictures">
+				<a [href]="picture.fileUrl" target="_blank">
+					<img [src]="picture.fileUrl" [alt]="picture.fileName" style="width: 200px; height: auto;">
+				</a>
+				<span (click)="showDeleteModal(picture._id)">
+					delete
+				</span>
+				<div>
+					<button (click)="setAsThumbnail(picture._id, armyId)">set as thumbnail</button>
+				</div>
+			</div>
+		</div>
+	</article>
+	
+	<app-confirmation-modal
+		*ngIf="pictureIdToDelete"
+		[message]="'Are you sure you want to delete this picture?'"
+		(confirmed)="onDeleteConfirm(pictureIdToDelete)"
+		(cancelled)="onDeleteCancel()"
+	>
+	</app-confirmation-modal>
+	
+</section>
+

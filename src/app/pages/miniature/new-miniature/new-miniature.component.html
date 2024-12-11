@@ -1,0 +1,12 @@
+<h2>Miniatures</h2>
+
+<form (ngSubmit)="newMiniatureSubmit()" [formGroup]="miniatureForm">
+	<label for="name">Unit Name</label>
+	<input
+		type="text"
+		id="name"
+		formControlName="name"
+		required
+	>
+	<button type="submit">Add</button>
+</form>

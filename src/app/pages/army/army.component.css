@@ -1,0 +1,45 @@
+.army-container {
+	/*outline: 1px solid black;*/
+}
+
+.army-header {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 40px;
+}
+.army-title {
+	font-size: 18px;
+	font-weight: 600;
+	margin-block: 0;
+}
+
+header > span {
+	font-weight: 500;
+	font-style: italic;
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.article-title {
+	font-weight: 600;
+	/*font-style: 24px;*/
+}
+
+.miniatures-list {
+	list-style: none;
+	padding: 0;
+}
+
+.miniatures-list > li {
+	margin-bottom: 1rem;
+}
+
+.miniatures-list__item-link {
+	text-decoration: none;
+	color: gray;
+}
+
+.miniature-img {
+	width: 100%;
+	max-width: 580px;
+	height: auto;
+}

@@ -1,0 +1,24 @@
+<div
+	class="dropdown"
+	[ngClass]="{'collapsed': collapsed}"
+>
+	<div class="dropdown-header" (click)="clickHandler()">
+		<img
+			class="header-icon"
+			[src]="iconUrl"
+			alt="icon"
+		>
+		<ng-content select=".dropdown-title"></ng-content>
+		<img
+			class="header-icon__arrow"
+			src="../../../assets/icons/game-icons_spiral-arrow.svg"
+			alt="icon"
+		>
+	</div>
+	
+<!--	collapse content -->
+	<div class="content">
+		<ng-content select=".content"></ng-content>
+	</div>
+</div>
+

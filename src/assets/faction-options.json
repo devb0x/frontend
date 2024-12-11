@@ -1,0 +1,282 @@
+{
+	"universes": [
+		{
+			"key": "age_of_sigmar",
+			"name": "Age of Sigmar",
+			"image": "assets/logos/AoS-logo.webp"
+		},
+		{
+			"key": "warhammer_40K",
+			"name": "Warhammer 40K",
+			"image": "assets/logos/40k-logo.webp"
+		}
+	],
+	"age_of_sigmar": {
+		"alliances": ["order", "chaos", "destruction", "death"],
+		"image": "",
+		"factions": [
+			{
+				"key": "cities_of_sigmar",
+				"value": "Cities of Sigmar",
+				"logo": "assets/factions-icons/cities_of_sigmar.svg",
+				"alliance": "order",
+				"units": [
+					"Freeguild Guard",
+					"Greatswords",
+					"Freeguild Crossbowmen",
+					"Demigryph Knights",
+					"Hellstorm Rocket Battery",
+					"Celestial Hurricanum",
+					"Luminark of Hysh",
+					"Steam Tank",
+					"Battlemage",
+					"Sorceress",
+					"Freeguild General",
+					"Flagellants",
+					"Black Guard",
+					"Ironbreakers",
+					"Iron Drakes",
+					"Gyrocopter"
+				]
+			},
+			{
+				"key": "daughters_of_khaine",
+				"value": "Daughters of Khaine",
+				"logo": "assets/factions-icons/daughters_of_khaine.svg",
+				"alliance": "order",
+				"units": [
+					"Witch Aelves",
+					"Hag Queen",
+					"Sisters of Slaughter",
+					"Blood Sisters",
+					"Blood Stalkers",
+					"Morathi",
+					"Cauldron of Blood",
+					"Khinerai Heartrenders",
+					"Khinerai Lifetakers",
+					"Melusai Ironscale",
+					"Avatar of Khaine",
+					"Shadowstalkers",
+					"The Shadow Queen",
+					"Doomfire Warlocks"
+				]
+			},
+			{
+				"key": "fyreslayers",
+				"value": "Fyreslayers",
+				"logo": "assets/factions-icons/fyreslayers.svg",
+				"alliance": "order",
+				"units": [
+					"Vulkite Berzerkers",
+					"Hearthguard Berzerkers",
+					"Magmadroth",
+					"Auric Runesmiter",
+					"Auric Runemaster",
+					"Auric Runeson",
+					"Hearthguard Auric",
+					"Grimwrath Berzerker",
+					"Runefather",
+					"Doomseeker",
+					"Zharrgrim Priest",
+					"Runeson on Magmadroth",
+					"Battlesmith",
+					"Lords of the Lodge"
+				]
+			},
+			{
+				"key": "idoneth_deepkin",
+				"value": "Idoneth Deepkin",
+				"logo": "assets/factions-icons/idoneth_deepkin.svg",
+				"alliance": "order",
+				"units": [
+					"Namarti Thralls",
+					"Namarti Reavers",
+					"Akelian Allopex",
+					"Akelian Leviadon",
+					"Lotann Warden of the Soul Ledgers",
+					"Isharann Tidecaster",
+					"Isharann Soulrender",
+					"Isharann Soulscryer",
+					"Akelian King",
+					"Eidolon of Mathlann",
+					"Morrsarr Guard",
+					"Ishlaen Guard",
+					"Volturnos, High King of the Deep"
+				]
+			},
+			{
+				"key": "kharadron_overlords",
+				"value": "Kharadron Overlords",
+				"logo": "assets/factions-icons/kharadron_overlords.svg",
+				"alliance": "order",
+				"units": [
+					"Arkanaut Company",
+					"Endrinriggers",
+					"Skywardens",
+					"Grundstok Thunderers",
+					"Aether-Khemist",
+					"Endrinmaster",
+					"Brokk Grungsson",
+					"Grundstok Gunhauler",
+					"Ironclad",
+					"Frigate",
+					"Aetheric Navigator",
+					"Arkanaut Admiral",
+					"Skyriggers"
+				]
+			},
+			{
+				"key": "lumineth_realm_lords",
+				"value": "Lumineth Realm-Lords",
+				"logo": "assets/factions-icons/lumineth_realmlords.svg",
+				"alliance": "order",
+				"units": [
+					"Vanari Auralan Wardens",
+					"Vanari Auralan Sentinels",
+					"Vanari Dawnriders",
+					"Scinari Cathallar",
+					"Alarith Stoneguard",
+					"Alarith Spirit of the Mountain",
+					"Lyrior Uthralle",
+					"Teclis",
+					"Eltharion",
+					"Vanari Bladelords",
+					"Scinari Loreseeker",
+					"Severith, Lord of the Seventh Wind",
+					"Ellania and Ellathor"
+				]
+			},
+			{
+				"key": "seraphon",
+				"value": "Seraphon",
+				"logo": "assets/factions-icons/seraphon.svg",
+				"alliance": "order",
+				"units": [
+					"Saurus Warriors",
+					"Saurus Knights",
+					"Skinks",
+					"Stegadon",
+					"Bastiladon",
+					"Engine of the Gods",
+					"Kroxigor",
+					"Saurus Oldblood",
+					"Skink Starpriest",
+					"Lord Kroak",
+					"Terradon Riders",
+					"Ripperdactyl Riders",
+					"Slann Starmaster",
+					"Razordon Hunting Pack"
+				]
+			},
+			{
+				"key": "stormcast_eternals",
+				"value": "Stormcast Eternals",
+				"logo": "assets/factions-icons/stormcast_eternals.svg",
+				"alliance": "order",
+				"units": [
+					"Liberators",
+					"Judicators",
+					"Retributors",
+					"Prosecutors",
+					"Vanguard-Hunters",
+					"Vanguard-Raptors",
+					"Evocators",
+					"Sequitors",
+					"Dracothian Guard",
+					"Celestar Ballista",
+					"Knight-Incantor",
+					"Lord-Arcanum",
+					"Lord-Celestant",
+					"Gryph-Hounds",
+					"Aetherwings",
+					"Stormdrake Guard",
+					"Yndrasta, the Celestial Spear",
+					"Annihilators"
+				]
+			},
+			{
+				"key": "sylvaneth",
+				"value": "Sylvaneth",
+				"logo": "assets/factions-icons/sylvaneth.svg",
+				"alliance": "order",
+				"units": [
+					"Dryads",
+					"Treelord",
+					"Branchwych",
+					"Kurnoth Hunters",
+					"Alarielle the Everqueen",
+					"Tree-Revenants",
+					"Spite-Revenants",
+					"Drycha Hamadreth",
+					"Spirit of Durthu",
+					"Branchwraith",
+					"Arch-Revenant",
+					"Gossamid Archers",
+					"Warsong Revenant",
+					"Spiteswarm Hive"
+				]
+			},
+			{
+				"key": "blades_of_khorne",
+				"value": "Blades of Khorne",
+				"logo": "assets/factions-icons/khorne_daemons.svg",
+				"alliance": "chaos",
+				"units": []
+			},
+			{
+				"key": "disciples_of_tzeentch",
+				"value": "Disciples of Tzeentch",
+				"logo": "assets/factions-icons/tzeentch_arcanites.svg",
+				"alliance": "chaos",
+				"units": []
+			},
+			{
+				"key": "hedonites_of_slaanesh",
+				"value": "Hedonites of Slaanesh",
+				"logo": "assets/factions-icons/hedonites_of_slaanesh.svg",
+				"alliance": "chaos",
+				"units": []
+			},
+			{
+				"key": "maggotkin_of_nurgle",
+				"value": "Maggotkin of Nurgle",
+				"logo": "assets/factions-icons/maggotkin_of_nurgle.svg",
+				"alliance": "chaos",
+				"units": []
+			},
+			{
+				"key": "skaven",
+				"value": "Skaven",
+				"logo": "assets/factions-icons/skaven.svg",
+				"alliance": "chaos",
+				"units": []
+			},
+			{
+				"key": "slaves_to_darkness",
+				"value": "Slaves to Darkness",
+				"logo": "assets/factions-icons/slaves_to_darkness.svg",
+				"alliance": "chaos",
+				"units": []
+			}
+		]
+	},
+	"warhammer_40K": {
+		"alliances": ["space marines"],
+		"factions": [
+			{
+				"key": "black_templars",
+				"value": "Black Templars",
+				"logo": "assets/factions-icons/slaves_to_darkness.svg",
+				"alliance": "space marines",
+				"units": []
+			},
+			{
+			"key": "blood_angels",
+			"value": "Blood Angels",
+			"logo": "assets/factions-icons/slaves_to_darkness.svg",
+			"alliance": "space marines",
+			"units": []
+			}
+		]
+}
+}

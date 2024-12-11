@@ -1,0 +1,45 @@
+<div *ngIf="miniature">
+	<header class="army-header">
+		<h1 class="army-title">{{ army.name }}</h1>
+		<div>
+			<span class="army-category">{{ army.category }} - </span>
+			<span class="army-subcategory">{{ army.subCategory }}</span>
+		</div>
+		<span>Owner: {{ army.ownerId }}</span>
+		<div>
+			<a routerLink="/army/{{armyId}}" class="btn-link">Back to army</a>
+		</div>
+	</header>
+	
+	<div>
+		<header class="miniature-header">
+			<h2 class="miniature-title">{{ miniature.name }}</h2>
+			<div *ngIf="editLink">
+				<a routerLink="/army/{{armyId}}/miniature/edit/{{miniatureId}}" class="btn-link">Edit Miniature</a>
+			</div>
+		</header>
+		<img class="miniature-image" [src]="miniature.thumbnailUrl" [alt]="miniature.name" *ngIf="miniature?.thumbnailUrl">
+		
+		<div *ngFor="let step of miniature.steps" class="miniature-step">
+			<h3 class="miniature-step__title"><span>{{ step.number }} - </span>{{ step.title }}</h3>
+			
+			<div class="miniature-step__wrapper-images">
+				<div *ngFor="let picture of step.pictures">
+					<img [src]="picture.fileUrl" [alt]="picture.fileName" class="miniature-step__img">
+				</div>
+			</div>
+			
+			<div>
+				<h4 class="step-title">Paints Used</h4>
+				<div *ngIf="step.paintsUsed.length < 1" style="margin-top: 16px; font-style: italic">
+					There is no paint listed yet..
+				</div>
+				<ul class="miniature-list">
+					<li *ngFor="let paint of step.paintsUsed">{{ paint.name }} - {{ paint.type }}</li>
+				</ul>
+			</div>
+			
+			<div class="step-description">{{ step.description }}</div>
+		</div>
+	</div>
+</div>

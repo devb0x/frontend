@@ -1,0 +1,14 @@
+<div class="user-card">
+<!--	<img src="" alt="username">-->
+	<div>
+		{{ username }}
+	</div>
+	<div>
+		<p>Armies: {{ armiesCount }}</p>
+		<p>Miniatures: {{ miniaturesCount }}</p>
+	</div>
+	<a
+		[routerLink]="['/profile', memberNumber]"
+		class="card-link">
+	</a>
+</div>

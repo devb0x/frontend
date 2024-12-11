@@ -1,0 +1,171 @@
+<div [formGroup]="form" class="question">
+<!--	<label-->
+<!--		[attr.for]="question.key"-->
+<!--		class="label"-->
+<!--	>-->
+<!--		{{question.label}}-->
+<!--	</label>-->
+	
+	<div [ngSwitch]="question.controlType" >
+		
+		
+		<div
+			*ngSwitchCase="'textbox'"
+			class="custom-textbox"
+		>
+			<input
+				*ngSwitchCase="'textbox'"
+				[formControlName]="question.key"
+				[id]="question.key"
+				[type]="question.type"
+			>
+		</div>
+		
+		<div
+			*ngSwitchCase="'dropdown'"
+			class="custom-dropdown-container"
+		>
+			<select
+				class="custom-select"
+				[id]="question.key"
+				*ngSwitchCase="'dropdown'"
+				[formControlName]="question.key"
+			>
+<!--				<option default selected value="">&#45;&#45; Select a {{ question.key }} &#45;&#45;</option>-->
+				<option default selected value="">-- Select --</option>
+				<option
+					*ngFor="let opt of question.options"
+					[value]="opt.value"
+					class="custom-option"
+				>
+					{{opt.value}}
+				</option>
+			</select>
+<!--			<span class="custom-select__icon" >-->
+<!--        <img src="../../../assets/icons/shield.svg" alt="shield dropdown">-->
+<!--      </span>-->
+		</div>
+		
+		<!-- Card Selection (Radio) Input -->
+<!--		<div *ngIf="question.step === 2">-->
+<!--			<app-dropdown>-->
+<!--				<h2 class="dropdown-title">Order</h2>-->
+<!--				<div class="content">-->
+<!--					<div *ngSwitchCase="'radio'" class="card-selection">-->
+<!--						<div-->
+<!--							*ngFor="let opt of question.options"-->
+<!--							class="card-option"-->
+<!--							[ngClass]="{'selected': form.controls[question.key].value === opt.value}"-->
+<!--							[ngStyle]="question.step === 2 ? {'justify-content' : 'space-between'} : {'justify-content': 'space-around'}"-->
+<!--							(click)="form.controls[question.key].setValue(opt.value)"-->
+<!--						>-->
+<!--							<p *ngIf="question.step === 2">{{ opt.value }}</p>-->
+<!--							<img-->
+<!--								-->
+<!--								[src]="opt.logo"-->
+<!--								[alt]="opt.value"-->
+<!--								class="card-image"-->
+<!--							>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</app-dropdown>-->
+<!--		</div>-->
+<!--		&lt;!&ndash; If question.step !== 2, render the regular card selection &ndash;&gt;-->
+<!--		<div *ngIf="question.step !== 2" class="card-selection">-->
+<!--			<div-->
+<!--				*ngFor="let opt of question.options"-->
+<!--				class="card-option"-->
+<!--				[ngClass]="{'selected': form.controls[question.key].value === opt.value}"-->
+<!--				[ngStyle]="question.step === 2 ? {'justify-content' : 'space-between'} : {'justify-content': 'space-around'}"-->
+<!--				-->
+<!--				(click)="form.controls[question.key].setValue(opt.value)"-->
+<!--			>-->
+<!--				<p>{{ opt.value }}</p>-->
+<!--				<img [src]="opt.logo" [alt]="opt.value" class="card-image">-->
+<!--			</div>-->
+<!--		</div>-->
+		
+<!--		<div *ngSwitchCase="'radio'" class="card-selection">-->
+<!--			<div-->
+<!--				*ngFor="let opt of question.options"-->
+<!--				class="card-option"-->
+<!--				[ngClass]="{'selected': form.controls[question.key].value === opt.value}"-->
+<!--				[ngStyle]="question.step === 2 ? {'justify-content' : 'space-between'} : {'justify-content': 'space-around'}"-->
+<!--				(click)="form.controls[question.key].setValue(opt.value)"-->
+<!--			>-->
+<!--				<p *ngIf="question.step === 2">{{ opt.value }}</p>-->
+<!--				<img-->
+<!--					-->
+<!--					[src]="opt.logo"-->
+<!--					[alt]="opt.value"-->
+<!--					class="card-image"-->
+<!--				>-->
+<!--			</div>-->
+<!--		</div>-->
+		<!-- Handle radio button selection for steps other than step 2 -->
+		
+<!--		 HERE -->
+		<ng-container *ngIf="question.step !== 2">
+			<div *ngSwitchCase="'radio'" class="card-selection">
+				<div
+					*ngFor="let opt of question.options"
+					class="card-option"
+					[ngClass]="{'selected': form.controls[question.key].value === opt.value}"
+					[ngStyle]="question.step === 2 ? {'justify-content' : 'space-between'} : {'justify-content': 'space-around'}"
+					(click)="form.controls[question.key].setValue(opt.value)"
+				>
+<!--					<p>{{ opt.value }}</p>-->
+					<img [src]="opt.logo" [alt]="opt.value" class="card-image">
+				</div>
+			</div>
+		</ng-container>
+		
+		<!-- Handle radio button selection inside dropdown for step 2 -->
+		<ng-container *ngIf="question.step === 2">
+			<app-dropdown>
+				<h2 class="dropdown-title">Order</h2>
+				<div class="content">
+					<div class="card-selection">
+						<div
+							*ngFor="let opt of filteredOptions"
+							class="card-option"
+							[ngClass]="{'selected': form.controls[question.key].value === opt.value}"
+							[ngStyle]="question.step === 2 ? {'justify-content' : 'space-between'} : {'justify-content': 'space-around'}"
+							(click)="form.controls[question.key].setValue(opt.value)"
+						>
+							<p>{{ opt.value }}</p>
+							<img [src]="opt.logo" [alt]="opt.value" class="card-image">
+						</div>
+					</div>
+				</div>
+			</app-dropdown>
+		</ng-container>
+	
+	
+<!--		<div [ngSwitch]="question.controlType">-->
+<!--			<div *ngSwitchCase="'radio'" class="card-selection">-->
+<!--				<div-->
+<!--					*ngFor="let opt of filteredOptions"-->
+<!--					class="card-option"-->
+<!--					[ngClass]="{'selected': form.controls[question.key].value === opt.value}"-->
+<!--					(click)="form.controls[question.key].setValue(opt.value)"-->
+<!--					[ngStyle]="question.step === 2 ? {'justify-content' : 'space-between'} : {'justify-content': 'space-around'}"-->
+<!--				>-->
+<!--					<p *ngIf="question.step === 2">{{ opt.value }}</p>-->
+<!--					<img [src]="opt.logo" [alt]="opt.value" class="card-image">-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+		
+	</div>
+	
+	
+	
+	
+	<!--	<div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>-->
+	
+	<div class="errorMessage" *ngIf="isInvalid(question.key)">
+		{{question.label}} is required
+	</div>
+</div>

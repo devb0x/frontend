@@ -1,0 +1,48 @@
+/*.dropdown {*/
+/*	margin-bottom: 40px;*/
+/*}*/
+
+
+.dropdown {
+	margin-bottom: 40px;
+}
+
+.dropdown-header {
+	background-color: transparent;
+	border: 1px solid var(--darkOrange);
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 8px;
+	cursor: pointer;
+	height: 32px;
+	margin-bottom: 18px;
+}
+
+.header-icon {
+	height: 24px;
+}
+
+.header-icon__arrow {
+	margin-left: auto;
+	transition: transform .3s ease-in-out;
+}
+
+.dropdown.collapsed .header-icon__arrow {
+	transform: rotate(180deg); /* Rotate the arrow when collapsed */
+}
+
+/* Initially, hide the content */
+.dropdown .content {
+	max-height: 0;
+	overflow: hidden;
+}
+
+/* When not collapsed, show the content */
+.dropdown:not(.collapsed) .content {
+	max-height: fit-content;
+	height: auto;
+	width: auto;
+	line-height: 1.4;
+}

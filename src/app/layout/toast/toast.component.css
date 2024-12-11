@@ -1,0 +1,42 @@
+.toast {
+	position: absolute;
+	bottom: 70px; /* footer height + 16px */
+	right: 5%;
+	padding: 12px;
+	border-radius: 4px;
+	background-color: var(--lightBlack);
+	color: white;
+	opacity: 0.9;
+	border: 1px solid black;
+}
+
+.success {
+	background-color: white;
+	color: black;
+	border: 1px solid green;
+}
+
+.error {
+	background-color: white;
+	color: black;
+	border: 1px solid red;
+}
+
+.progress-bar {
+	position: absolute;
+	background-color: var(--lightOrange);
+	height: 3px;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	animation: shrinkWidth 3s linear forwards;
+}
+
+@keyframes shrinkWidth {
+	0% {
+		width: 100%;
+	}
+	100% {
+		width: 0;
+	}
+}

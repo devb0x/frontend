@@ -1,0 +1,8 @@
+<p>profile works!</p>
+<div *ngIf="army$">
+	<div *ngFor="let army of army$">
+		<app-army-card
+			[army]="army"
+		></app-army-card>
+	</div>
+</div>

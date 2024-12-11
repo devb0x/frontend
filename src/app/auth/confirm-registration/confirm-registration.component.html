@@ -1,0 +1,6 @@
+<div *ngIf="isLoading">
+	<app-spinner></app-spinner>
+</div>
+<div *ngIf="!isLoading">
+	{{ confirmationMessage }}
+</div>

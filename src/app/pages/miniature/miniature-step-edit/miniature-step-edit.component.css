@@ -1,0 +1,25 @@
+/*.step-form {*/
+/*	display: flex;*/
+/*	flex-direction: column;*/
+/*	gap: 10px;*/
+/*	margin-block: 16px 32px;*/
+/*}*/
+
+/*.step-form > label {*/
+/*	font-weight: 600;*/
+/*}*/
+
+/*.step-form > input, textarea {*/
+/*	padding: 6px;*/
+/*	font-size: 0.9rem;*/
+/*	border: 1px solid rgb(0, 0, 0, 20%);*/
+/*}*/
+
+/*.step-form__btn-wrapper {*/
+/*	display: flex;*/
+/*	gap: 16px;*/
+/*}*/
+
+/*.step-form__btn-wrapper > button {*/
+/*	width: 50%;*/
+/*}*/

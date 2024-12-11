@@ -1,0 +1,127 @@
+.recent-section {
+	margin-block: 170px;
+}
+
+.recent-section h2 {
+	font-size: 2rem;
+}
+
+.carousel {
+	margin: 8em auto 2em;
+	display: flex;
+	justify-content: center;
+	width: 800px;
+	overflow: hidden;
+	position: relative;
+}
+
+.carousel-inner {
+	position: relative;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	height: 550px;
+
+	transition: transform 0.5s ease-in-out; /* Add transition for smooth sliding */
+}
+
+.picture {
+	height: 600px;
+	object-fit: contain;
+	aspect-ratio: 4/3;
+	z-index: 1;
+	object-position: center;
+	background-color: rgba(0, 0, 0, 100);
+}
+
+.overlay {
+	display: none;
+	position: absolute;
+}
+.carousel:hover .overlay {
+	z-index: 10;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, .25);
+	display: block;
+	padding-block: 3em;
+}
+.overlay-link {
+	text-align: center;
+	position: relative;
+	color: white;
+	text-decoration: none;
+	width: fit-content;
+	margin: auto;
+	display: flex;
+	font-weight: 600;
+	letter-spacing: 1px;
+	padding: 1em;
+	border: 1px solid #E98C00;
+}
+.overlay-link:hover {
+	background-color: #9B5D00;
+}
+
+.carousel-nav {
+	display: flex;
+	margin: auto;
+	width: fit-content;
+	gap: 1em;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+.stepper {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	margin-bottom: 1em;
+}
+.step {
+	height: 8px;
+	width: 24px;
+	background-color: #f9ce62;
+	cursor: pointer;
+}
+.active {
+	background-color: #E98C00;
+}
+
+.timer-container {
+	width: 50px;
+	height: 8px; /* Adjust the height as needed */
+	background-color: #f9ce62; /* Background color of the container */
+	border-radius: 1px; /* Optional: rounded corners */
+	overflow: hidden; /* Hide overflow */
+	position: relative;
+	display: flex;
+}
+.timer-bar {
+	height: 100%;
+	background-color: #E98C00; /* Background color of the timer bar */
+	transition: width 1s linear; /* Smooth transition for width change */
+	border-radius: 1px; /* Optional: rounded corners */
+}
+
+.prev, .next {
+	border: 0;
+	background: transparent;
+	font-size: 16px;
+	color: #f9ce62;
+	cursor: pointer;
+	padding: 6px;
+}
+
+.prev:hover, .next:hover {
+	color: #E98C00;
+}
+
+
+
+
+

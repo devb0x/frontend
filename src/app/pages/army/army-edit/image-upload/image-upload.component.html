@@ -1,0 +1,13 @@
+<div>
+	<h2>Upload Image</h2>
+	<input
+		#fileInput
+		type="file"
+		[multiple]="true"
+		(change)="onFileSelected($event)"
+	/>
+	<ul>
+		<li *ngFor="let file of selectedFiles">{{ file.name }}</li>
+	</ul>
+	<button (click)="uploadFile()" class="btn-link">Upload</button>
+</div>

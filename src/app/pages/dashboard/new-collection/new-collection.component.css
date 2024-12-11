@@ -1,0 +1,8 @@
+.cancel-link {
+	text-decoration: none;
+	color: #FFFFFF;
+	background-color: #E98C00;
+	border: 1px solid black;
+	padding: 4px 8px;
+	border-radius: 4px;
+}

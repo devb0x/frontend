@@ -1,0 +1,39 @@
+<div>
+	<hr>
+	paint select works
+</div>
+
+<div class="paint-container">
+	<!-- Tabs or Accordion for each Paint Type -->
+	<div *ngFor="let paintType of paints" class="paint-section">
+		<h3>{{ paintType.type }} Paints</h3>
+		
+		<!-- Searchable dropdown using Angular Material or similar libraries -->
+		<select [name]="paintType.type" [id]="paintType.type" #selectElement>
+			<option *ngFor="let name of paintType.paints" [value]="name">
+				{{ name }}
+			</option>
+		</select>
+		
+		<!-- Add to Step button, passing the select element -->
+		<button (click)="addPaintToStep(paintType.type, paintType.brand, selectElement)">
+			Add to Step
+		</button>
+	</div>
+	
+	<!-- Display Selected Paints for the Step -->
+	<div class="selected-paints" *ngIf="selectedPaints.length > 0">
+		<h4>Paints Selected for This Step:</h4>
+		<ul>
+			<li *ngFor="let selected of selectedPaints">
+				{{ selected.type }} - {{ selected.name }}
+				<button (click)="removePaintFromStep(selected)">Remove</button>
+			</li>
+		</ul>
+		<div>
+			<button (click)="savePaintsUsed()" class="btn-link btn-confirm">
+				Confirm - remove this later
+			</button>
+		</div>
+	</div>
+</div>

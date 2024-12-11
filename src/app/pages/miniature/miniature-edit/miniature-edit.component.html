@@ -1,0 +1,104 @@
+<h1>miniature-edit works!</h1>
+<header class="army-header">
+	<h1 class="army-title">{{ army.name }}</h1>
+	<div>
+		<span class="army-category">{{ army.category }} - </span>
+		<span class="army-subcategory">{{ army.subCategory }}</span>
+	</div>
+	<span>Owner: {{ army.ownerId }}</span>
+</header>
+
+<div *ngIf="miniature">
+	<h2>{{ miniature.name }}</h2>
+	<div *ngIf="!displayForm">
+		<button
+			class="btn-link btn-cancel"
+			type="button"
+			(click)="backToMiniaturePage()"
+		>
+			Back to miniature
+		</button>
+		<button
+			class="btn-link"
+			type="button"
+			(click)="displayFormStep()"
+		>
+			Add Step
+		</button>
+	</div>
+	
+	<div *ngIf="displayForm">
+		<form [formGroup]="stepForm" (submit)="formStepSubmit()" class="step-form">
+			<label for="title">
+				Step Title
+			</label>
+			<input type="text" formControlName="title" id="title" required>
+			<label for="description">
+				Description
+			</label>
+			<textarea formControlName="description" id="description" required></textarea>
+			<button
+				[disabled]="stepForm.invalid"
+				type="submit"
+				class="btn-link btn-confirm"
+			>
+				Create Step
+			</button>
+			<button
+				type="button"
+				(click)="displayForm = false"
+				class="btn-link btn-cancel"
+			>
+				Cancel
+			</button>
+		</form>
+
+		<div *ngIf="displayImageUpload">
+			<app-image-upload
+				[armyId]="this.army._id"
+				[miniatureId]="this.miniature._id!"
+				[stepNumber]="this.currentStep"
+				[actionType]="'miniature'">
+			</app-image-upload>
+		</div>
+	</div>
+	
+	<div *ngIf="!displayForm">
+		<div *ngIf="!miniature.steps.length">
+			There is no step yet..
+		</div>
+		
+		<div *ngFor="let step of miniature.steps" class="miniature-step">
+			<header>
+				<h3 class="miniature-step__title"><span>{{ step.number }} - </span>{{ step.title }}</h3>
+				<div>
+					<a [routerLink]="['edit-step', step.number]" [relativeTo]="route" class="btn-link">Edit step</a>
+				</div>
+			</header>
+			<div *ngFor="let picture of step.pictures">
+				<img [src]="picture.fileUrl" alt="some img" class="miniature-step__img">
+			</div>
+			<div>
+				<h4 class="step-title">Paints Used</h4>
+				<div *ngIf="step.paintsUsed.length < 1">
+					There is no paint listed yet..
+				</div>
+				<ul *ngFor="let paint of step.paintsUsed">
+					<li>{{ paint.name }} - {{ paint.type }}</li>
+				</ul>
+			</div>
+			<div class="step-description">{{ step.description }}</div>
+		</div>
+	</div>
+	
+	<hr>
+	<div>
+		<h4>Gallery</h4>
+		<div *ngFor="let step of miniature.steps">
+			<div *ngFor="let picture of step.pictures">
+				<img [src]="picture.fileUrl" alt="some img" class="miniature-gallery__img">
+				<button (click)="setAsThumbnail(picture._id, army._id, miniature._id)">set as thumbnail</button>
+			</div>
+		</div>
+	</div>
+</div>

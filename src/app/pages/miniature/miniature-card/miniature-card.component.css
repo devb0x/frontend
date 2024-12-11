@@ -1,0 +1,43 @@
+.link {
+	text-decoration: none;
+}
+
+.miniature-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	transition: transform 0.2s;
+	overflow: hidden;
+	height: 268px;
+	position: relative;
+	border-radius: 4px;
+}
+
+.miniature-card:hover {
+	outline: 2px solid var(--lightOrange);
+}
+
+.miniature-card .miniature-card__image {
+	transform: scale(1);
+}
+.miniature-card:hover .miniature-card__image {
+	transform: scale(1.05);
+}
+
+.miniature-card__image {
+	transition: transform .3s ease;
+	width: 100%;
+}
+
+.miniature-card__name {
+	position: absolute;
+	width: 100%;
+	background-color: var(--lightBlack);
+	color: white;
+	font-size: 1rem;
+	font-weight: 500;
+	margin: auto;
+	bottom: 0;
+	padding: 1em 0;
+}

@@ -1,0 +1,35 @@
+<div class="dashboard-container">
+	<header class="dashboard-header">
+		<div>
+			<h1 class="dashboard-title">{{ userData?.username }} 's Dashboard</h1>
+			<button (click)="logout()" >
+				logout
+			</button>
+		</div>
+		<a routerLink="/dashboard/new-army" class="dashboard-create__link">
+			create new army
+		</a>
+	</header>
+	
+	<app-dropdown
+		[iconUrl]="'../../../assets/icons/game-icons_elf-helmet.svg'"
+	>
+		<h2 class="dropdown-title">
+			Armies Collections
+		</h2>
+		<div class="content">
+			<app-army-list></app-army-list>
+		</div>
+	</app-dropdown>
+	
+	<app-dropdown
+		[iconUrl]="'../../../assets/icons/game-icons_standing-potion.svg'"
+	>
+		<h2 class="dropdown-title">
+			Paints Collections
+		</h2>
+		<div class="content">
+			< app-paint-list > to create later
+		</div>
+	</app-dropdown>
+</div>

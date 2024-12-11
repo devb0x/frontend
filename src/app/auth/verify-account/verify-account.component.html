@@ -1,0 +1,19 @@
+<div class="container">
+	<h1>Account Confirmation</h1>
+	<div
+		*ngIf="!isLoading && !linkSend"
+		class="container"
+	>
+		<p>Your account need to be confirmed ! Please check your mail box and follow the link provided.</p>
+		<button class="submit" (click)="sendLink()" [disabled]="linkSend">Send a new mail</button>
+	</div>
+	<div *ngIf="isLoading">
+		<app-spinner></app-spinner>
+	</div>
+	<div *ngIf="linkSend">
+		<p>Email send to {{ email }}, check it for confirming your account.</p>
+		<p>Back to
+			<a routerLink="/login" class="link">login.</a>
+		</p>
+	</div>
+</div>

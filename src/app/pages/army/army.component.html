@@ -1,0 +1,83 @@
+<section>
+	<div *ngIf="army$" class="army-container">
+		<header class="army-header">
+			<h1 class="army-title">{{ army$.name }}</h1>
+			<div>
+				<span class="army-category">{{ army$.category }} - </span>
+				<span class="army-subcategory">{{ army$.subCategory }}</span>
+			</div>
+			<span>Owner: {{ army$.ownerId }}</span>
+			<div *ngIf="editLink">
+				<a
+					routerLink="/army/edit/{{army$._id}}"
+					[state]="{armyData: army$}"
+					class="btn-link"
+				>edit army</a>
+				<button type="button" (click)="deleteArmy(army$._id)">Delete</button>
+			</div>
+		</header>
+		
+		<app-dropdown
+			[iconUrl]="'../../../assets/icons/game-icons_feather.svg'"
+		>
+			<h2 class="dropdown-title">Description</h2>
+			<div class="content">
+				{{ army$.description }}
+			</div>
+		</app-dropdown>
+		
+		<app-dropdown
+			[iconUrl]="'../../../assets/icons/game-icons_spell-book.svg'"
+		>
+			<h2 class="dropdown-title">Lore</h2>
+			<div class="content">
+				{{ army$.lore }}
+			</div>
+		</app-dropdown>
+		
+		<h3>Miniatures</h3>
+		<ul *ngIf="army$.miniatures && army$.miniatures.length > 0" class="miniatures-list">
+			<li  *ngFor="let miniature of army$.miniatures">
+				<app-miniature-card
+					[link]="['miniature', miniature._id || 'default']"
+					[miniature]="miniature">
+				</app-miniature-card>
+				<div>
+					<button (click)="deleteMiniature(miniature._id)">delete miniature</button>
+				</div>
+			</li>
+		</ul>
+		<div *ngIf="army$.miniatures.length === 0">
+			No miniatures yet..
+		</div>
+		
+		<div *ngIf="army$.pictures && army$.pictures.length > 0">
+			<h3>Gallery</h3>
+			<div *ngFor="let picture of army$.pictures">
+				<a [href]="picture.fileUrl" target="_blank">
+					<img
+						[src]="picture.fileUrl"
+						[alt]="picture.fileName"
+						class="miniature-img"
+					>
+				</a>
+			</div>
+		</div>
+		
+	</div>
+	
+	<app-confirmation-modal
+		*ngIf="armyIdToDelete"
+		[message]="'Are you sure you want to delete this army?'"
+		(confirmed)="onDeleteConfirm(armyIdToDelete)"
+		(cancelled)="onDeleteCancel()"
+	>
+	</app-confirmation-modal>
+	<app-confirmation-modal
+		*ngIf="miniatureIdToDelete"
+		[message]="'Are you sure you want to delete this miniature?'"
+		(confirmed)="onDeleteMiniatureConfirm(armyId, miniatureIdToDelete)"
+		(cancelled)="onDeleteCancel()"
+	>
+	</app-confirmation-modal>
+</section>

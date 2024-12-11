@@ -1,0 +1,21 @@
+<section class="how-it-works">
+	<div class="steps-wrapper">
+		<div *ngFor="let step of steps" class="card">
+			<img
+				class="card-image"
+				[src]="step.icon"
+				alt="{{ step.title }}"
+			>
+			<h3 class="card-title">{{ step.title }}</h3>
+			<div class="card-divider"></div>
+			<p class="card-text">
+				{{ step.description }}
+				<span *ngIf="step.link">
+					<a [routerLink]="step.link" style="display: inline-block">
+						{{ step.linkText}}
+					</a>{{ step.dot }}
+				</span>
+			</p>
+		</div>
+	</div>
+</section>

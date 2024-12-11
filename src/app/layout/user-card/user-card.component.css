@@ -1,0 +1,19 @@
+.user-card {
+	width: 146px;
+	height: 205px;
+	outline: 1px solid black;
+	position: relative;
+}
+
+.card-link {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 100;
+	cursor: pointer;
+	inset: 0;
+}
+
+.card-link:hover {
+	outline: 2px solid var(--darkOrange);
+}

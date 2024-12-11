@@ -1,0 +1,22 @@
+<div class="card">
+	<div class="card-thumbnail" *ngIf="army?.thumbnailUrl">
+		<img [src]="army?.thumbnailUrl" alt="thumbnail">
+	</div>
+	<div class="card-text">
+		<h3 class="card-text__title">
+			{{ army?.name }}
+		</h3>
+		<div class="card-text__infos">
+			<span class="card-text__infos-category">
+				{{ army?.category }} -
+			</span>
+			<span class="card-text__infos-subCategory">
+				{{ army?.subCategory }}
+			</span>
+		</div>
+	</div>
+	<a
+		[routerLink]="['/army', army?._id]"
+		class="card-link"></a>
+</div>
+

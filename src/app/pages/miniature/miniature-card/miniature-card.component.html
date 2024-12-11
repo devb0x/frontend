@@ -1,0 +1,16 @@
+<a [routerLink]="link" class="link">
+	<div class="miniature-card">
+		<!-- Display the thumbnail or placeholder if not available -->
+		<img
+			*ngIf="miniature.thumbnailUrl"
+			[src]="miniature.thumbnailUrl"
+			[alt]="miniature.name"
+			class="miniature-card__image"
+			loading="lazy"
+		/>
+		<div *ngIf="!miniature.thumbnailUrl">
+			no picture yet
+		</div>
+		<h4 class="miniature-card__name">{{ miniature.name }}</h4>
+	</div>
+</a>

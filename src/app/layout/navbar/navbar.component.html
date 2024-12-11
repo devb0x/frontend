@@ -1,0 +1,75 @@
+<div class="site-header">
+	<a
+		routerLink="/"
+		routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+		class="link logo-link"
+	>
+		<img
+			class="navbar-logo"
+			src="../../../assets/icons/logo_wharmy.svg"
+			alt="wharmy sword"
+		>
+	</a>
+<!--	desktop navbar -->
+	<nav class="navbar">
+		<ul class="navbar-list">
+			<li *ngIf="!userIsAuth">
+				<a routerLink="/login" routerLinkActive="active" class="link" >
+					login
+				</a>
+			</li>
+			<li *ngIf="userIsAuth">
+				<a routerLink="/dashboard" routerLinkActive="active" class="link">
+					dashboard
+				</a>
+			</li>
+			<li>
+				<a routerLink="/armies" routerLinkActive="active" class="link link-border__left">
+					armies
+				</a>
+			</li>
+			<li>
+				<a routerLink="/sandbox" routerLinkActive="active" class="link link-border__left">
+					sandbox
+				</a>
+			</li>
+		</ul>
+		<app-search-bar></app-search-bar>
+	</nav>
+<!--	 mobile navbar -->
+	<div
+		(click)="toggleMobileNav()"
+		class="nav-icon"
+	>
+<!--		span for hamburger icon-->
+		<span></span><span></span><span></span><span></span><span></span><span></span>
+	</div>
+
+	<nav
+		class="mobile-navbar"
+		[ngClass]="{'display': mobileMenuOpen, 'hidden': !mobileMenuOpen }"
+	>
+			<ul class="mobile-navbar-list" (click)="$event.stopPropagation()">
+				<li *ngIf="!userIsAuth" >
+					<a routerLink="/login" routerLinkActive="active" class="link mobile-link" (click)="toggleMobileNav()">
+						login
+					</a>
+				</li>
+				<li *ngIf="userIsAuth">
+					<a routerLink="/dashboard" routerLinkActive="active" class="link mobile-link" (click)="toggleMobileNav()">
+						dashboard
+					</a>
+				</li>
+				<li>
+					<a routerLink="/armies" routerLinkActive="active" class="link mobile-link" (click)="toggleMobileNav()">
+						armies
+					</a>
+				</li>
+				<li>
+					<a routerLink="/sandbox" routerLinkActive="active" class="link mobile-link" (click)="toggleMobileNav()">
+						sandbox
+					</a>
+				</li>
+			</ul>
+	</nav>
+</div>

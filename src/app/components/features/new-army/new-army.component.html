@@ -1,0 +1,80 @@
+<section>
+	<div>
+		<a routerLink="/dashboard" class="cancel-link">Cancel</a>
+	</div>
+	
+	<form [formGroup]="armyForm" (ngSubmit)="onSubmit()">
+		<!-- Step 1: Universe Selection -->
+		<div *ngIf="currentStep === 1">
+			<div class="card-selection">
+				<app-card
+					*ngFor="let universe of universes"
+					[imageUrl]="universe.image"
+					[value]="universe.key"
+					(selectionChange)="onUniverseChange(universe.key)"
+					[selectedValue]="armyForm.get('universe')?.value"
+				>
+				</app-card>
+			</div>
+			
+			<button
+				type="button"
+				(click)="nextStep()"
+				[disabled]="armyForm.get('universe')?.value === ''"
+			>
+				Next
+			</button>
+		</div>
+		
+		<!-- Step 2: Alliance Selection -->
+		<div *ngIf="currentStep === 2">
+			<h2>Faction Selection</h2>
+			
+			<div *ngIf="alliances.length > 0">
+				<div class="alliance-dropdowns" *ngFor="let alliance of alliances">
+					<app-dropdown [iconUrl]="'assets/alliances-icons/' + alliance + '.svg'" [collapsed]="true">
+						<div class="dropdown-title">{{ alliance }}</div>
+						<div class="content">
+							<app-card
+								*ngFor="let item of groupedFactions[alliance]"
+								[imageUrl]="item.logo"
+								[label]="item.value"
+								[selectedValue]="armyForm.get('faction')?.value"
+								(selectionChange)="onFactionChange(item.value)"
+								[value]="item.value"
+							>
+							</app-card>
+						</div>
+					</app-dropdown>
+				</div>
+			</div>
+			
+			<button type="button" (click)="currentStep = 1">Back</button>
+			<button
+				type="button"
+				(click)="nextStep()"
+				[disabled]="armyForm.get('faction')?.value === ''"
+			>
+				Next
+			</button>
+		</div>
+		
+		<!-- Step 3: Name Selection -->
+		<div *ngIf="currentStep === 3">
+			<label for="name">Name</label>
+			<input type="text" id="name" formControlName="name">
+			<button type="button" (click)="currentStep = 2">Back</button>
+			<button
+				type="submit"
+				(click)="onSubmit()"
+				[disabled]="armyForm.get('name')?.invalid"
+			>
+				Submit
+			</button>
+		
+		</div>
+		
+	</form>
+</section>
+
+

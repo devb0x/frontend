@@ -1,0 +1,19 @@
+footer {
+	background-color: #252525;
+	color: white;
+	width: 100%;
+	border-top: 2px solid var(--lightOrange);
+	margin-top: 80px;
+	min-height: 42px;
+	display: flex;
+}
+
+.footer {
+	width: 90%;
+	padding-block: 2em;
+	margin-inline: auto;
+	font-size: 11px;
+	color: var(--lightWhite);
+	margin-block: auto;
+	margin-left: 5%;
+}

@@ -1,0 +1,25 @@
+<section class="recent-section">
+	<h3 class="recent-section-title">
+		Recent Uploads
+	</h3>
+	<div
+		*ngIf="miniatures$ && miniatures$.length"
+		class="recent-section-gallery"
+	>
+		<img
+			*ngFor="let miniature of miniatures$; let i = index"
+			[attr.data-index]="i"
+			[src]="miniature.fileUrl"
+			[alt]="miniature.fileName"
+			class="picture"
+		>
+	</div>
+	<div>
+		<a
+			class=""
+			routerLink="/armies"
+		>
+			Show all Armies
+		</a>
+	</div>
+</section>

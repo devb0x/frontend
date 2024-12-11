@@ -1,0 +1,40 @@
+<section class="recent-section">
+	<div>
+		<h2>Recent Uploads</h2>
+		<div class="carousel" *ngIf="miniatures$ && miniatures$.length">
+				<div class="overlay">
+					<a [routerLink]="['/army', miniatures$[currentIndex].armyId]" class="overlay-link">
+						Show Army
+					</a>
+				</div>
+			<div class="carousel-inner">
+				<img
+					*ngFor="let miniature of miniatures$; let i = index"
+					class="picture"
+					[attr.data-index]="i"
+					[src]="miniature.fileUrl"
+					[alt]="miniature.fileName"
+				>
+			</div>
+	
+		</div>
+		<div class="carousel-nav">
+			<div class="stepper">
+				<span
+					*ngFor="let miniature of miniatures$; let i = index"
+					class="step"
+					[ngClass]="{'active': i === currentIndex }"
+					(click)="setImageDisplayed(i)">
+				</span>
+			</div>
+			<button class="prev" (click)="prevSlide()">&#10094;</button>
+			<div class="timer-container" (click)="pause()">
+				<div
+					class="timer-bar"
+					[ngStyle]="{ width: timerWidth + '%' }"
+				></div>
+			</div>
+			<button class="next" (click)="nextSlide()">&#10095;</button>
+		</div>
+	</div>
+</section>
