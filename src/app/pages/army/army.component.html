@@ -42,7 +42,7 @@
 					[link]="['miniature', miniature._id || 'default']"
 					[miniature]="miniature">
 				</app-miniature-card>
-				<div>
+				<div *ngIf="editLink">
 					<button (click)="deleteMiniature(miniature._id)">delete miniature</button>
 				</div>
 			</li>
