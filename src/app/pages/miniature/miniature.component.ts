@@ -32,10 +32,20 @@ export class MiniatureComponent {
 		private miniatureService: MiniatureService,
 		private route: ActivatedRoute,
 	) {}
-		// TODO remove this line after testing
-		// http://localhost:4200/army/6720981b009825bb8b80dbe6/miniature/67209bbdbec24b1ebd34fef7
+
 	ngOnInit() {
+		const expirationDateString = localStorage.getItem("expirationDate")
 		const userId = localStorage.getItem("userId")
+		let edit: boolean = false
+
+		if (expirationDateString) {
+			const expirationDate: Date = new Date(expirationDateString)
+			const expirationTimeStamp = expirationDate.getTime()
+			const now = new Date()
+			const currentDate = now.getTime()
+
+			edit = expirationTimeStamp >= currentDate
+		}
 
 		this.armyId = this.route.snapshot.paramMap.get('armyId')!
 		this.miniatureId = this.route.snapshot.paramMap.get('miniatureId')!
@@ -51,7 +61,7 @@ export class MiniatureComponent {
 			});
 
 		})
-		if (this.army.ownerId === userId) {
+		if (this.army.ownerId === userId && edit) {
 			this.editLink = true
 		}
 	}

@@ -1,0 +1,25 @@
+.not-found__wrapper {
+	gap: 2em;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+}
+
+.not-found__text {
+	text-align: center;
+	font-style: italic;
+	margin: 0;
+}
+
+.not-found__picture {
+	display: flex;
+	height: 250px;
+	margin: 0 auto;
+}
+
+.not-found__link {
+	display: flex;
+	margin-inline: auto;
+	width: fit-content;
+}
