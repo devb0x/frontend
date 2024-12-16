@@ -257,6 +257,62 @@
 				"logo": "assets/factions-icons/slaves_to_darkness.svg",
 				"alliance": "chaos",
 				"units": []
+			},
+			{
+				"key": "flesh_eater_courts",
+				"value": "Flesh-eater Courts",
+				"logo": "assets/factions-icons/flesh_eater_courts.svg",
+				"alliance": "death",
+				"units": []
+			},
+			{
+				"key": "nighthaunt",
+				"value": "Nighthaunt",
+				"logo": "assets/factions-icons/nighthaunt.svg",
+				"alliance": "death",
+				"units": []
+			},
+			{
+				"key": "ossiarch_bonereapers",
+				"value": "Ossiarch Bonereapers",
+				"logo": "assets/factions-icons/ossiarch_bonereapers.svg",
+				"alliance": "death",
+				"units": []
+			},
+			{
+				"key": "soulblight_gravelords",
+				"value": "Soulblight Gravelords",
+				"logo": "assets/factions-icons/soulblight_gravelords.svg",
+				"alliance": "death",
+				"units": []
+			},
+			{
+				"key": "gloomspite_gitz",
+				"value": "Gloomspite Gitz",
+				"logo": "assets/factions-icons/gloomspite_gitz.svg",
+				"alliance": "destruction",
+				"units": []
+			},
+			{
+				"key": "ogor_mawtribes",
+				"value": "Ogor Mawtribes",
+				"logo": "assets/factions-icons/ogor_mawtribes.svg",
+				"alliance": "destruction",
+				"units": []
+			},
+			{
+				"key": "orruk_warclans",
+				"value": "Orruk Warclans",
+				"logo": "assets/factions-icons/orruk_warclans.svg",
+				"alliance": "destruction",
+				"units": []
+			},
+			{
+				"key": "sons_of_behemat",
+				"value": "Sons of Behemat",
+				"logo": "assets/factions-icons/sons_of_behemat.svg",
+				"alliance": "destruction",
+				"units": []
 			}
 		]
 	},
