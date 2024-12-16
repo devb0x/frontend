@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http"
 
 import { environment } from "../../../environments/environment"
 
-const BACKEND_URL = `${environment.apiUrl}/user/`
+const BACKEND_URL = `${environment.apiUrl}`
 
 @Injectable({ providedIn: 'root'})
 export class DashboardService {
@@ -19,7 +19,7 @@ export class DashboardService {
 
 		return this.http
 			.get<any>(
-				BACKEND_URL + `getUserInformation?id=${userId}`,
+				BACKEND_URL + `/user/getUserInformation?id=${userId}`,
 				{ headers }
 			)
 	}
@@ -35,7 +35,7 @@ export class DashboardService {
 		}
 		return this.http
 			.post(
-				'http://localhost:3000/api/army/new-army', data, { headers }
+				BACKEND_URL + `/army/new-army`, data, { headers }
 			)
 	}
 

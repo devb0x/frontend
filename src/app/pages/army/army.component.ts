@@ -9,6 +9,7 @@ import { DropdownComponent } from "../../layout/dropdown/dropdown.component"
 import {ImageUploadComponent} from "./army-edit/image-upload/image-upload.component";
 import {MiniatureCardComponent} from "../miniature/miniature-card/miniature-card.component";
 import {ConfirmationModalComponent} from "../../layout/confirmation-modal/confirmation-modal.component";
+import {ToastService} from "../../services/toast.service";
 
 @Component({
 	selector: 'app-army',
@@ -29,6 +30,7 @@ export class ArmyComponent {
 	constructor(
 		private router: Router,
 		private armyService: ArmyService,
+		private toastService: ToastService
 	) {}
 
 	@Input() armyId = ''
@@ -89,29 +91,29 @@ export class ArmyComponent {
 				(response) => {
 					console.log('Delete successful', response);
 					this.armyIdToDelete = ''
-					console.log('Reset armyIdToDelete:', this.armyIdToDelete);
-					// setTimeout(() => {
-						this.router.navigate(['/dashboard']);
-					// }, 500);
+					this.toastService.showSuccess("Army successfully deleted !")
+					return this.router.navigate(['/dashboard']);
 				},
 				(error) => {
-					console.log('Error deleting army', error);
+					console.log('Error deleting army', error)
+					this.toastService.showError("Error deleting the army..")
+					this.armyIdToDelete = ''
 				}
 			);
 	}
 
 	onDeleteMiniatureConfirm(armyId: string, miniatureId: string) {
-		console.log('armyId = ', armyId, 'miniatureId = ', miniatureId)
 		this.armyService
 			.deleteMiniature(armyId, miniatureId)
 			.subscribe(
 				(response) => {
 					console.log('Delete successful', response)
 					this.miniatureIdToDelete = ''
-					this.router.navigate(['/dashboard'])
+					return this.router.navigate(['/dashboard'])
 				},
 				(error) => {
 					console.log('Error deleting miniature', error)
+					this.miniatureIdToDelete = ''
 				}
 			)
 	}
