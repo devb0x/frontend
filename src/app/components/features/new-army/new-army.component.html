@@ -32,7 +32,7 @@
 			
 			<div *ngIf="alliances.length > 0">
 				<div class="alliance-dropdowns" *ngFor="let alliance of alliances">
-					<app-dropdown [iconUrl]="'assets/alliances-icons/' + alliance + '.svg'" [collapsed]="true">
+					<app-dropdown [iconUrl]="'assets/alliances-icons/' + alliance.split(' ').join('_') + '.svg'" [collapsed]="true">
 						<div class="dropdown-title">{{ alliance }}</div>
 						<div class="content">
 							<app-card
