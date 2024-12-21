@@ -18,7 +18,7 @@
 			{
 				"key": "cities_of_sigmar",
 				"value": "Cities of Sigmar",
-				"logo": "assets/factions-icons/cities_of_sigmar.svg",
+				"logo": "assets/factions-icons/AoS/cities_of_sigmar.svg",
 				"alliance": "order",
 				"units": [
 					"Freeguild Guard",
@@ -42,7 +42,7 @@
 			{
 				"key": "daughters_of_khaine",
 				"value": "Daughters of Khaine",
-				"logo": "assets/factions-icons/daughters_of_khaine.svg",
+				"logo": "assets/factions-icons/AoS/daughters_of_khaine.svg",
 				"alliance": "order",
 				"units": [
 					"Witch Aelves",
@@ -64,7 +64,7 @@
 			{
 				"key": "fyreslayers",
 				"value": "Fyreslayers",
-				"logo": "assets/factions-icons/fyreslayers.svg",
+				"logo": "assets/factions-icons/AoS/fyreslayers.svg",
 				"alliance": "order",
 				"units": [
 					"Vulkite Berzerkers",
@@ -86,7 +86,7 @@
 			{
 				"key": "idoneth_deepkin",
 				"value": "Idoneth Deepkin",
-				"logo": "assets/factions-icons/idoneth_deepkin.svg",
+				"logo": "assets/factions-icons/AoS/idoneth_deepkin.svg",
 				"alliance": "order",
 				"units": [
 					"Namarti Thralls",
@@ -107,7 +107,7 @@
 			{
 				"key": "kharadron_overlords",
 				"value": "Kharadron Overlords",
-				"logo": "assets/factions-icons/kharadron_overlords.svg",
+				"logo": "assets/factions-icons/AoS/kharadron_overlords.svg",
 				"alliance": "order",
 				"units": [
 					"Arkanaut Company",
@@ -128,7 +128,7 @@
 			{
 				"key": "lumineth_realm_lords",
 				"value": "Lumineth Realm-Lords",
-				"logo": "assets/factions-icons/lumineth_realmlords.svg",
+				"logo": "assets/factions-icons/AoS/lumineth_realmlords.svg",
 				"alliance": "order",
 				"units": [
 					"Vanari Auralan Wardens",
@@ -149,7 +149,7 @@
 			{
 				"key": "seraphon",
 				"value": "Seraphon",
-				"logo": "assets/factions-icons/seraphon.svg",
+				"logo": "assets/factions-icons/AoS/seraphon.svg",
 				"alliance": "order",
 				"units": [
 					"Saurus Warriors",
@@ -171,7 +171,7 @@
 			{
 				"key": "stormcast_eternals",
 				"value": "Stormcast Eternals",
-				"logo": "assets/factions-icons/stormcast_eternals.svg",
+				"logo": "assets/factions-icons/AoS/stormcast_eternals.svg",
 				"alliance": "order",
 				"units": [
 					"Liberators",
@@ -197,7 +197,7 @@
 			{
 				"key": "sylvaneth",
 				"value": "Sylvaneth",
-				"logo": "assets/factions-icons/sylvaneth.svg",
+				"logo": "assets/factions-icons/AoS/sylvaneth.svg",
 				"alliance": "order",
 				"units": [
 					"Dryads",
@@ -219,120 +219,331 @@
 			{
 				"key": "blades_of_khorne",
 				"value": "Blades of Khorne",
-				"logo": "assets/factions-icons/khorne_daemons.svg",
+				"logo": "assets/factions-icons/AoS/khorne_daemons.svg",
 				"alliance": "chaos",
 				"units": []
 			},
 			{
 				"key": "disciples_of_tzeentch",
 				"value": "Disciples of Tzeentch",
-				"logo": "assets/factions-icons/tzeentch_arcanites.svg",
+				"logo": "assets/factions-icons/AoS/tzeentch_arcanites.svg",
 				"alliance": "chaos",
 				"units": []
 			},
 			{
 				"key": "hedonites_of_slaanesh",
 				"value": "Hedonites of Slaanesh",
-				"logo": "assets/factions-icons/hedonites_of_slaanesh.svg",
+				"logo": "assets/factions-icons/AoS/hedonites_of_slaanesh.svg",
 				"alliance": "chaos",
 				"units": []
 			},
 			{
 				"key": "maggotkin_of_nurgle",
 				"value": "Maggotkin of Nurgle",
-				"logo": "assets/factions-icons/maggotkin_of_nurgle.svg",
+				"logo": "assets/factions-icons/AoS/maggotkin_of_nurgle.svg",
 				"alliance": "chaos",
 				"units": []
 			},
 			{
 				"key": "skaven",
 				"value": "Skaven",
-				"logo": "assets/factions-icons/skaven.svg",
+				"logo": "assets/factions-icons/AoS/skaven.svg",
 				"alliance": "chaos",
 				"units": []
 			},
 			{
 				"key": "slaves_to_darkness",
 				"value": "Slaves to Darkness",
-				"logo": "assets/factions-icons/slaves_to_darkness.svg",
+				"logo": "assets/factions-icons/AoS/slaves_to_darkness.svg",
 				"alliance": "chaos",
 				"units": []
 			},
 			{
 				"key": "flesh_eater_courts",
 				"value": "Flesh-eater Courts",
-				"logo": "assets/factions-icons/flesh_eater_courts.svg",
+				"logo": "assets/factions-icons/AoS/flesh_eater_courts.svg",
 				"alliance": "death",
 				"units": []
 			},
 			{
 				"key": "nighthaunt",
 				"value": "Nighthaunt",
-				"logo": "assets/factions-icons/nighthaunt.svg",
+				"logo": "assets/factions-icons/AoS/nighthaunt.svg",
 				"alliance": "death",
 				"units": []
 			},
 			{
 				"key": "ossiarch_bonereapers",
 				"value": "Ossiarch Bonereapers",
-				"logo": "assets/factions-icons/ossiarch_bonereapers.svg",
+				"logo": "assets/factions-icons/AoS/ossiarch_bonereapers.svg",
 				"alliance": "death",
 				"units": []
 			},
 			{
 				"key": "soulblight_gravelords",
 				"value": "Soulblight Gravelords",
-				"logo": "assets/factions-icons/soulblight_gravelords.svg",
+				"logo": "assets/factions-icons/AoS/soulblight_gravelords.svg",
 				"alliance": "death",
 				"units": []
 			},
 			{
 				"key": "gloomspite_gitz",
 				"value": "Gloomspite Gitz",
-				"logo": "assets/factions-icons/gloomspite_gitz.svg",
+				"logo": "assets/factions-icons/AoS/gloomspite_gitz.svg",
 				"alliance": "destruction",
 				"units": []
 			},
 			{
 				"key": "ogor_mawtribes",
 				"value": "Ogor Mawtribes",
-				"logo": "assets/factions-icons/ogor_mawtribes.svg",
+				"logo": "assets/factions-icons/AoS/ogor_mawtribes.svg",
 				"alliance": "destruction",
 				"units": []
 			},
 			{
 				"key": "orruk_warclans",
 				"value": "Orruk Warclans",
-				"logo": "assets/factions-icons/orruk_warclans.svg",
+				"logo": "assets/factions-icons/AoS/orruk_warclans.svg",
 				"alliance": "destruction",
 				"units": []
 			},
 			{
 				"key": "sons_of_behemat",
 				"value": "Sons of Behemat",
-				"logo": "assets/factions-icons/sons_of_behemat.svg",
+				"logo": "assets/factions-icons/AoS/sons_of_behemat.svg",
 				"alliance": "destruction",
 				"units": []
 			}
 		]
 	},
 	"warhammer_40K": {
-		"alliances": ["space marines"],
+		"alliances": ["space marines", "armies of the imperium", "armies of chaos", "xenos armies"],
+		"image": "",
 		"factions": [
 			{
 				"key": "black_templars",
 				"value": "Black Templars",
-				"logo": "assets/factions-icons/slaves_to_darkness.svg",
+				"logo": "assets/factions-icons/40K/black_templars.svg",
 				"alliance": "space marines",
 				"units": []
 			},
 			{
-			"key": "blood_angels",
-			"value": "Blood Angels",
-			"logo": "assets/factions-icons/slaves_to_darkness.svg",
-			"alliance": "space marines",
-			"units": []
+				"key": "blood_angels",
+				"value": "Blood Angels",
+				"logo": "assets/factions-icons/40K/blood_angels.svg",
+				"alliance": "space marines",
+				"units": []
+			},
+			{
+				"key": "dark_angels",
+				"value": "Dark Angels",
+				"logo": "assets/factions-icons/40K/dark_angels.svg",
+				"alliance": "space marines",
+				"units": []
+			},
+			{
+				"key": "deathwatch",
+				"value": "Deathwatch",
+				"logo": "assets/factions-icons/40K/deathwatch.svg",
+				"alliance": "space marines",
+				"units": []
+			},
+			{
+				"key": "grey_knights",
+				"value": "Grey Knights",
+				"logo": "assets/factions-icons/40K/grey_knights.svg",
+				"alliance": "space marines",
+				"units": []
+			},
+			{
+				"key": "imperial_fists",
+				"value": "Imperial Fists",
+				"logo": "assets/factions-icons/40K/imperial_fists.svg",
+				"alliance": "space marines",
+				"units": []
+			},
+			{
+				"key": "iron_hands",
+				"value": "Iron Hands",
+				"logo": "assets/factions-icons/40K/iron_hands.svg",
+				"alliance": "space marines",
+				"units": []
+			},
+			{
+				"key": "raven_guard",
+				"value": "Raven Guard",
+				"logo": "assets/factions-icons/40K/raven_guard.svg",
+				"alliance": "space marines",
+				"units": []
+			},
+			{
+				"key": "salamanders",
+				"value": "Salamanders",
+				"logo": "assets/factions-icons/40K/salamanders.svg",
+				"alliance": "space marines",
+				"units": []
+			},
+			{
+				"key": "space_wolves",
+				"value": "Space Wolves",
+				"logo": "assets/factions-icons/40K/space_wolves.svg",
+				"alliance": "space marines",
+				"units": []
+			},
+			{
+				"key": "ultramarines",
+				"value": "Ultramarines",
+				"logo": "assets/factions-icons/40K/ultramarines.svg",
+				"alliance": "space marines",
+				"units": []
+			},
+			{
+				"key": "white_scars",
+				"value": "White Scars",
+				"logo": "assets/factions-icons/40K/white_scars.svg",
+				"alliance": "space marines",
+				"units": []
+			},
+			{
+				"key": "adepta_sororitas",
+				"value": "Adepta Sororitas",
+				"logo": "assets/factions-icons/40K/adepta_sororitas.svg",
+				"alliance": "armies of the imperium",
+				"units": []
+			},
+			{
+				"key": "adeptus_custodes",
+				"value": "Adeptus Custodes",
+				"logo": "assets/factions-icons/40K/adeptus_custodes.svg",
+				"alliance": "armies of the imperium",
+				"units": []
+			},
+			{
+				"key": "adeptus_mechanicus",
+				"value": "Adeptus Mechanicus",
+				"logo": "assets/factions-icons/40K/adeptus_mechanicus.svg",
+				"alliance": "armies of the imperium",
+				"units": []
+			},
+			{
+				"key": "agents_of_the_imperium",
+				"value": "Agents of the Imperium",
+				"logo": "assets/factions-icons/40K/agents_of_the_imperium.svg",
+				"alliance": "armies of the imperium",
+				"units": []
+			},
+			{
+				"key": "astra_militarum",
+				"value": "Astra Militarum",
+				"logo": "assets/factions-icons/40K/astra_militarum.svg",
+				"alliance": "armies of the imperium",
+				"units": []
+			},
+			{
+				"key": "imperial_knights",
+				"value": "Imperial Knights",
+				"logo": "assets/factions-icons/40K/imperial_knights.svg",
+				"alliance": "armies of the imperium",
+				"units": []
+			},
+			{
+				"key": "chaos_daemons",
+				"value": "Chaos Daemons",
+				"logo": "assets/factions-icons/40K/chaos_daemons.svg",
+				"alliance": "armies of chaos",
+				"units": []
+			},
+			{
+				"key": "chaos_knights",
+				"value": "Chaos Knights",
+				"logo": "assets/factions-icons/40K/chaos_knights.svg",
+				"alliance": "armies of chaos",
+				"units": []
+			},
+			{
+				"key": "chaos_space_marines",
+				"value": "Chaos Space Marines",
+				"logo": "assets/factions-icons/40K/chaos_space_marines.svg",
+				"alliance": "armies of chaos",
+				"units": []
+			},
+			{
+				"key": "death_guard",
+				"value": "Death Guard",
+				"logo": "assets/factions-icons/40K/death_guard.svg",
+				"alliance": "armies of chaos",
+				"units": []
+			},
+			{
+				"key": "thousand_sons",
+				"value": "Thousand Sons",
+				"logo": "assets/factions-icons/40K/thousand_sons.svg",
+				"alliance": "armies of chaos",
+				"units": []
+			},
+			{
+				"key": "world_eaters",
+				"value": "World Eaters",
+				"logo": "assets/factions-icons/40K/world_eaters.svg",
+				"alliance": "armies of chaos",
+				"units": []
+			},
+			{
+				"key": "aeldari",
+				"value": "Aeldari",
+				"logo": "assets/factions-icons/40K/aeldari.svg",
+				"alliance": "xenos armies",
+				"units": []
+			},
+			{
+				"key": "drukhari",
+				"value": "Drukhari",
+				"logo": "assets/factions-icons/40K/drukhari.svg",
+				"alliance": "xenos armies",
+				"units": []
+			},
+			{
+				"key": "genestealer_cults",
+				"value": "Genestealer Cults",
+				"logo": "assets/factions-icons/40K/genestealer_cults.svg",
+				"alliance": "xenos armies",
+				"units": []
+			},
+			{
+				"key": "leagues_of_votann",
+				"value": "Leagues of Votann",
+				"logo": "assets/factions-icons/40K/leagues_of_votann.svg",
+				"alliance": "xenos armies",
+				"units": []
+			},
+			{
+				"key": "necrons",
+				"value": "Necrons",
+				"logo": "assets/factions-icons/40K/necrons.svg",
+				"alliance": "xenos armies",
+				"units": []
+			},
+			{
+				"key": "orks",
+				"value": "Orks",
+				"logo": "assets/factions-icons/40K/orks.svg",
+				"alliance": "xenos armies",
+				"units": []
+			},
+			{
+				"key": "tau_empire",
+				"value": "T'au Empire",
+				"logo": "assets/factions-icons/40K/tau_empire.svg",
+				"alliance": "xenos armies",
+				"units": []
+			},
+			{
+				"key": "tyranids",
+				"value": "Tyranids",
+				"logo": "assets/factions-icons/40K/tyranids.svg",
+				"alliance": "xenos armies",
+				"units": []
 			}
 		]
-}
+	}
 }
