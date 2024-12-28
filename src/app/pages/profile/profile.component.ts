@@ -5,7 +5,7 @@ import {UserService} from "../../services/user.service";
 import {ArmyService} from "../dashboard/army-list/army.service";
 import {ArmyInterface} from "../../models/army.interface";
 import {NgFor, NgIf} from "@angular/common";
-import {ArmyCardComponent} from "../dashboard/army-list/army-card/army-card.component";
+import {ArmyCardComponent} from "../../layout/army-card/army-card.component";
 
 @Component({
 	selector: 'app-profile',

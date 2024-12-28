@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core'
 import { NgIf } from "@angular/common"
 import { RouterLink } from "@angular/router"
 
-import { ArmyInterface } from "../../../../models/army.interface"
+import { ArmyInterface } from "../../models/army.interface"
 
 @Component({
 	selector: 'app-army-card',
