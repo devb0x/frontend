@@ -1,6 +1,6 @@
 <div class="card">
 	<div class="card-thumbnail" *ngIf="army?.thumbnailUrl">
-		<img [src]="army?.thumbnailUrl" alt="thumbnail">
+		<img [src]="army?.thumbnailUrl" [alt]="army?.name">
 	</div>
 	<div class="card-text">
 		<h3 class="card-text__title">

@@ -10,7 +10,7 @@ import {MiniatureInterface} from "../../models/miniature.interface";
 import {ArmyInterface} from "../../models/army.interface";
 import {UserInterface} from "../../models/user.interface";
 
-import { ArmyCardComponent } from "../dashboard/army-list/army-card/army-card.component";
+import { ArmyCardComponent } from "../../layout/army-card/army-card.component";
 import { MiniatureCardComponent } from "../miniature/miniature-card/miniature-card.component";
 import { UserCardComponent } from "../../layout/user-card/user-card.component";
 
