@@ -1,6 +1,6 @@
-<div class="card">
+<div class="card" [class.unset-thumbnail]="!army?.thumbnailUrl">
 	<div class="card-thumbnail" *ngIf="army?.thumbnailUrl">
-		<img [src]="army?.thumbnailUrl" alt="thumbnail">
+		<img [src]="army?.thumbnailUrl" [alt]="army?.name">
 	</div>
 	<div class="card-text">
 		<h3 class="card-text__title">
@@ -17,6 +17,7 @@
 	</div>
 	<a
 		[routerLink]="['/army', army?._id]"
-		class="card-link"></a>
+		class="card-link">
+	</a>
 </div>
 

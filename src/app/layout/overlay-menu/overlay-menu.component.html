@@ -1,0 +1,36 @@
+<button
+	class="hamburger-menu"
+	(click)="openOverlayMenu()"
+>
+	<span>&#183;</span><span>&#183;</span><span>&#183;</span>
+</button>
+<div *ngIf="isMenuOpen" class="overlay-menu">
+	<ul class="overlay-menu__list">
+		<li class="overlay-item">
+			<a [routerLink]="['/army/', army._id]" class="overlay-item__link">
+				View
+				<span class="li-icon view-icon"></span>
+			</a>
+		</li>
+		<li class="overlay-item">
+			<a [routerLink]="['/army/edit/', army._id]" class="overlay-item__link">
+				Edit
+				<span class="li-icon edit-icon"></span>
+			</a>
+		</li>
+		<li class="overlay-item alert">
+			<button type="button" class="overlay-button" (click)="deleteArmy(army._id)">
+				Delete
+				<span class="li-icon delete-icon"></span>
+			</button>
+		</li>
+	</ul>
+</div>
+
+<app-confirmation-modal
+	*ngIf="armyIdToDelete"
+	[message]="'Are you sure you want to delete this army?'"
+	(confirmed)="onDeleteConfirm(armyIdToDelete)"
+	(cancelled)="onDeleteCancel()"
+>
+</app-confirmation-modal>

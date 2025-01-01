@@ -1,10 +1,13 @@
 <div *ngIf="isLoading">
 	<app-spinner></app-spinner>
 </div>
-<div *ngIf="!isLoading">
-	<app-army-card
-		*ngFor="let army of armies"
-		[army]="army"
-	>
-	</app-army-card>
+<div *ngIf="!isLoading" class="armies-container">
+	<div class="army-card-wrapper" *ngFor="let army of armies">
+		<app-army-card [army]="army"></app-army-card>
+		<app-overlay-menu [army]="army"></app-overlay-menu>
+	</div>
+	<div *ngIf="armies.length === 0">
+		No army created yet..
+	</div>
 </div>
+

@@ -9,6 +9,7 @@ import {
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { CommonModule } from '@angular/common'
 import { environment } from "../../../../../environments/environment"
+import {ToastService} from "../../../../services/toast.service";
 
 const BACKEND_URL = `${environment.apiUrl}/`
 
@@ -43,7 +44,10 @@ export class ImageUploadComponent {
 
 	selectedFiles: File[] = []
 
-	constructor(private http: HttpClient) {}
+	constructor(
+		private http: HttpClient,
+		private toastService: ToastService
+	) {}
 
 	onFileSelected(event: Event): void {
 		const input = event.target as HTMLInputElement
@@ -85,11 +89,16 @@ export class ImageUploadComponent {
 						console.log('File uploaded ended', response)
 						if (response.data && response.data.length > 0) {
 							this.fileUploaded.emit(response.data)
+							this.toastService.showSuccess("Upload successful !")
+						} else {
+							this.toastService.showError("File upload failed ! The filename has to be unique.")
 						}
 						this.selectedFiles = []
 						this.resetFileInput()
 					},
-					error => console.error('File upload failed', error)
+					error => {
+						console.error('File upload failed', error)
+					}
 				)
 		}
 	}

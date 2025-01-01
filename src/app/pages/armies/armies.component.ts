@@ -5,7 +5,7 @@ import { ArmyInterface } from "../../models/army.interface"
 import { ArmyService } from "../dashboard/army-list/army.service"
 
 import { SpinnerComponent } from "../../layout/spinner/spinner.component"
-import { ArmyCardComponent } from "../dashboard/army-list/army-card/army-card.component"
+import { ArmyCardComponent } from "../../layout/army-card/army-card.component"
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
