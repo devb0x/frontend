@@ -7,6 +7,7 @@ import { ArmyInterface } from '../../../models/army.interface'
 
 import { ArmyCardComponent } from "../../../layout/army-card/army-card.component"
 import { SpinnerComponent } from "../../../layout/spinner/spinner.component"
+import { OverlayMenuComponent } from "../../../layout/overlay-menu/overlay-menu.component"
 
 @Component({
 	selector: 'app-army-list',
@@ -15,7 +16,8 @@ import { SpinnerComponent } from "../../../layout/spinner/spinner.component"
 		NgIf,
 		NgFor,
 		ArmyCardComponent,
-		SpinnerComponent
+		SpinnerComponent,
+		OverlayMenuComponent
 	],
 	templateUrl: './army-list.component.html',
 	styleUrl: './army-list.component.css'
@@ -45,5 +47,9 @@ export class ArmyListComponent {
 				}
 			)
 		this.isLoading = false
+	}
+
+	openOverlayMenu() {
+		console.log('menu open')
 	}
 }
