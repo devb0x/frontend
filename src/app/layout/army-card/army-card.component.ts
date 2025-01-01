@@ -9,7 +9,7 @@ import { ArmyInterface } from "../../models/army.interface"
 	standalone: true,
 	imports: [
 		RouterLink,
-		NgIf
+		NgIf,
 	],
 	templateUrl: './army-card.component.html',
 	styleUrl: './army-card.component.css',

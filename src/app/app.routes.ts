@@ -66,7 +66,7 @@ export const routes: Routes = [
 		children: [
 			{
 				path: '', // Empty path for '/dashboard'
-				component: DashboardComponent
+				component: DashboardComponent,
 			},
 			{
 				path: 'new-army',
