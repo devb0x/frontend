@@ -1,5 +1,7 @@
 .link {
 	text-decoration: none;
+	width: 100%;
+	height: 100%;
 }
 
 .miniature-card {
@@ -12,32 +14,66 @@
 	height: 268px;
 	position: relative;
 	border-radius: 4px;
+	/*background-color: #AAAAAA;*/
 }
 
 .miniature-card:hover {
 	outline: 2px solid var(--lightOrange);
 }
 
-.miniature-card .miniature-card__image {
-	transform: scale(1);
+.miniature-card__image {
+	transition: transform .3s ease;
+	height: 100%;
+	max-height: 100%;
+	max-width: 100%;
 }
+
+.miniature-card__image-unset {
+	height: 50%;
+	margin-top: 48px;
+}
+
 .miniature-card:hover .miniature-card__image {
 	transform: scale(1.05);
 }
 
-.miniature-card__image {
-	transition: transform .3s ease;
-	width: 100%;
-}
-
 .miniature-card__name {
+	opacity: 0;
 	position: absolute;
 	width: 100%;
-	background-color: var(--lightBlack);
 	color: white;
 	font-size: 1rem;
 	font-weight: 500;
 	margin: auto;
 	bottom: 0;
-	padding: 1em 0;
+	padding: 2em 1em;
+	height: 33%;
+}
+
+.miniature-card:hover .miniature-card__name {
+	transition: .15s ease-in-out;
+	opacity: 1;
+	background: linear-gradient(
+			to top,
+			var(--lightBlack) 0%,
+			hsl(0, 0%, 15%, 0) 100%
+	);
+}
+
+.miniature-card__name--without-thumbnail {
+	position: absolute;
+	width: 100%;
+	color: black;
+	font-size: 1rem;
+	font-weight: 500;
+	margin: auto;
+	bottom: 0;
+	padding: 2em 1em;
+	height: 33%;
+}
+
+.unset-thumbnail {
+	border: 1px solid hsl(36, 100%, 78%);
+	border-radius: 4px;
+	padding-bottom: 16px;
 }

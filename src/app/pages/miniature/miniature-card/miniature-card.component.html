@@ -1,16 +1,27 @@
-<a [routerLink]="link" class="link">
-	<div class="miniature-card">
+<div class="miniature-card" [class.unset-thumbnail]="!miniature.thumbnailUrl">
+	<a [routerLink]="link" class="link">
 		<!-- Display the thumbnail or placeholder if not available -->
-		<img
-			*ngIf="miniature.thumbnailUrl"
-			[src]="miniature.thumbnailUrl"
-			[alt]="miniature.name"
-			class="miniature-card__image"
-			loading="lazy"
-		/>
-		<div *ngIf="!miniature.thumbnailUrl">
-			no picture yet
-		</div>
-		<h4 class="miniature-card__name">{{ miniature.name }}</h4>
-	</div>
-</a>
+		<ng-container *ngIf="miniature.thumbnailUrl; else noThumbnail">
+			<img
+				
+				[src]="miniature.thumbnailUrl"
+				[alt]="miniature.name"
+				class="miniature-card__image"
+				loading="lazy"
+			/>
+		</ng-container>
+		<ng-template #noThumbnail>
+			<img
+				src="/assets/icons/no-picture.svg"
+				alt="no picture"
+				class="miniature-card__image-unset"
+			>
+		</ng-template>
+		<h4
+			[class.miniature-card__name]="miniature.thumbnailUrl"
+			[class.miniature-card__name--without-thumbnail]="!miniature.thumbnailUrl"
+		>
+			{{ miniature.name }}
+		</h4>
+	</a>
+</div>

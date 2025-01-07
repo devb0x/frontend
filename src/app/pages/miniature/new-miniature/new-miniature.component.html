@@ -1,6 +1,8 @@
-<h2>Miniatures</h2>
-
-<form (ngSubmit)="newMiniatureSubmit()" [formGroup]="miniatureForm">
+<form
+	(ngSubmit)="newMiniatureSubmit()"
+	[formGroup]="miniatureForm"
+	class="form"
+>
 	<label for="name">Unit Name</label>
 	<input
 		type="text"
@@ -8,5 +10,14 @@
 		formControlName="name"
 		required
 	>
-	<button type="submit">Add</button>
+	<button
+		type="submit"
+		class="btn submit"
+		[disabled]="miniatureForm.invalid"
+	>
+		Add Miniature
+	</button>
+	<span *ngIf="miniatureForm.dirty && miniatureForm.invalid" class="error-message">
+		The name must be at least 3 characters long.
+	</span>
 </form>

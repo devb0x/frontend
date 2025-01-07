@@ -7,6 +7,7 @@ import { ArmyService } from "../../pages/dashboard/army-list/army.service"
 import { ToastService } from "../../services/toast.service"
 
 import { ConfirmationModalComponent } from "../confirmation-modal/confirmation-modal.component"
+import {MiniatureInterface} from "../../models/miniature.interface";
 
 @Component({
 	selector: 'app-overlay-menu',
@@ -22,19 +23,17 @@ import { ConfirmationModalComponent } from "../confirmation-modal/confirmation-m
 })
 export class OverlayMenuComponent {
 	@Input() army!: ArmyInterface
+	@Input() miniature!: MiniatureInterface
 
 	isMenuOpen: boolean = false
 	armyIdToDelete: string = this.army?._id || ''
+	miniatureIdToDelete: string = this.miniature?._id || ''
 
 	constructor(
 		private armyService: ArmyService,
 		private toastService: ToastService,
 		private router: Router,
 	) {}
-
-	ngOnInit() {
-		// console.log(this.army)
-	}
 
 	openOverlayMenu() {
 		this.isMenuOpen = !this.isMenuOpen
@@ -44,27 +43,22 @@ export class OverlayMenuComponent {
 		this.armyIdToDelete = armyId
 	}
 
+	deleteMiniature(miniatureId: any) {
+		this.miniatureIdToDelete = miniatureId
+	}
+
 	onDeleteConfirm(armyId: string) {
-		this.armyService
-			.deleteArmy(armyId)
-			.subscribe(
-				(response) => {
-					console.log('Delete successful', response)
-					this.armyIdToDelete = ''
-					this.toastService.showSuccess("Army successfully deleted !")
-					this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-						return this.router.navigate(['/dashboard']);
-					})
-				},
-				(error) => {
-					console.log('Error deleting army', error)
-					this.toastService.showError("Error deleting the army..")
-					this.armyIdToDelete = ''
-				}
-			)
+		this.armyIdToDelete = ''
+		this.armyService.deleteArmyAndNavigate(armyId, this.toastService, this.router);
+	}
+
+	onDeleteMiniatureConfirm(armyId: string, miniatureId: string) {
+		this.miniatureIdToDelete = ''
+		this.armyService.deleteMiniatureAndNavigate(armyId, miniatureId, this.toastService, this.router)
 	}
 
 	onDeleteCancel() {
 		this.armyIdToDelete = ''
+		this.miniatureIdToDelete = ''
 	}
 }

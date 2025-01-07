@@ -36,6 +36,9 @@
 		</app-dropdown>
 		
 		<h3>Miniatures</h3>
+		<div *ngIf="army$.miniatures.length === 0">
+			No miniatures yet..
+		</div>
 		<ul *ngIf="army$.miniatures && army$.miniatures.length > 0" class="miniatures-list">
 			<li  *ngFor="let miniature of army$.miniatures">
 				<app-miniature-card
@@ -43,27 +46,26 @@
 					[miniature]="miniature">
 				</app-miniature-card>
 				<div *ngIf="editLink">
-					<button (click)="deleteMiniature(miniature._id)">delete miniature</button>
+					<app-overlay-menu [army]="army$" [miniature]="miniature"></app-overlay-menu>
 				</div>
 			</li>
 		</ul>
-		<div *ngIf="army$.miniatures.length === 0">
-			No miniatures yet..
-		</div>
 		
-		<div *ngIf="army$.pictures && army$.pictures.length > 0">
-			<h3>Gallery</h3>
-			<div *ngFor="let picture of army$.pictures">
-				<a [href]="picture.fileUrl" target="_blank">
+		<div
+			*ngIf="army$.pictures && army$.pictures.length > 0"
+			class="gallery-container"
+		>
+			<h3 class="gallery-container__title">Gallery</h3>
+			<div *ngFor="let picture of army$.pictures" >
+				<a [href]="picture.fileUrl" target="_blank" class="gallery-link">
 					<img
 						[src]="picture.fileUrl"
 						[alt]="picture.fileName"
-						class="miniature-img"
+						class="gallery-img"
 					>
 				</a>
 			</div>
 		</div>
-		
 	</div>
 	
 	<app-confirmation-modal
@@ -80,4 +82,5 @@
 		(cancelled)="onDeleteCancel()"
 	>
 	</app-confirmation-modal>
+	
 </section>

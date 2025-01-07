@@ -14,8 +14,8 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		height: calc(100vh - 84px); /* Ensure it covers the full viewport height */
-		z-index: 3; /* Ensure it is above other elements */
+		height: calc(100vh - 84px);
+		z-index: 99999;
 	}
 
 	.mobile-navbar.display {
@@ -199,25 +199,6 @@ li {
 	align-items: center;
 	margin-inline: auto;
 }
-
-/* TODO check this ? */
-/*.mobile-link.active:not(.logo-link)::after,*/
-/*.link.active:not(.logo-link)::after {*/
-/*	border-bottom: 2px solid #f9ce62;*/
-/*	position: absolute;*/
-/*	content: '';*/
-/*	display: block;*/
-/*	!**/
-/*		left and right value are equal to the padding-inline*/
-/*		of .link for matching the width of the text*/
-/*	*!*/
-/*	left: 2em;*/
-/*	right: 2em;*/
-/*	top: calc(100% + 8px);*/
-/*	width: 100%;*/
-
-/*	outline: 1px solid red;*/
-/*}*/
 
 .navbar-list .link.link-border__left {
 	border-left: 1px solid #8f8f8f;

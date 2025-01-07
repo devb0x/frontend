@@ -2,6 +2,8 @@ import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../../../environments/environment";
 import {Observable} from "rxjs";
+import {ToastService} from "../../../services/toast.service";
+import {Router} from "@angular/router";
 
 const BACKEND_URL = `${environment.apiUrl}/army`
 
@@ -77,4 +79,37 @@ export class ArmyService {
 			{ headers }
 		)
 	}
+
+	deleteArmyAndNavigate(armyId: string, toastService: ToastService, router: Router): void {
+		this.deleteArmy(armyId).subscribe(
+			(response) => {
+				console.log('Delete successful', response);
+				toastService.showSuccess("Army successfully deleted!");
+				router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+					return router.navigate(['/dashboard']);
+				});
+			},
+			(error) => {
+				console.log('Error deleting army', error);
+				toastService.showError("Error deleting the army..");
+			}
+		);
+	}
+
+	deleteMiniatureAndNavigate(armyId: string, miniatureId: string, toastService: ToastService, router: Router): void {
+		this.deleteMiniature(armyId, miniatureId).subscribe(
+			(response) => {
+				console.log('Delete successful', response);
+				toastService.showSuccess("Miniature successfully deleted!");
+				router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+					return router.navigate([`/army/${armyId}`]);
+				});
+			},
+			(error) => {
+				console.log('Error deleting miniature', error);
+				toastService.showError("Error deleting the army..");
+			}
+		);
+	}
+
 }

@@ -4,33 +4,68 @@
 >
 	<span>&#183;</span><span>&#183;</span><span>&#183;</span>
 </button>
-<div *ngIf="isMenuOpen" class="overlay-menu">
-	<ul class="overlay-menu__list">
-		<li class="overlay-item">
-			<a [routerLink]="['/army/', army._id]" class="overlay-item__link">
-				View
-				<span class="li-icon view-icon"></span>
-			</a>
-		</li>
-		<li class="overlay-item">
-			<a [routerLink]="['/army/edit/', army._id]" class="overlay-item__link">
-				Edit
-				<span class="li-icon edit-icon"></span>
-			</a>
-		</li>
-		<li class="overlay-item alert">
-			<button type="button" class="overlay-button" (click)="deleteArmy(army._id)">
-				Delete
-				<span class="li-icon delete-icon"></span>
-			</button>
-		</li>
-	</ul>
-</div>
+
+<ng-container *ngIf="army">
+	<div *ngIf="isMenuOpen" class="overlay-menu" >
+		<ul class="overlay-menu__list">
+			<li class="overlay-item">
+				<a [routerLink]="['/army/', army._id]" class="overlay-item__link">
+					View
+					<span class="li-icon view-icon"></span>
+				</a>
+			</li>
+			<li class="overlay-item">
+				<a [routerLink]="['/army/edit/', army._id]" class="overlay-item__link">
+					Edit
+					<span class="li-icon edit-icon"></span>
+				</a>
+			</li>
+			<li class="overlay-item alert">
+				<button type="button" class="overlay-button" (click)="deleteArmy(army._id)">
+					Delete
+					<span class="li-icon delete-icon"></span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</ng-container>
+
+<ng-container *ngIf="miniature">
+	<div *ngIf="isMenuOpen" class="overlay-menu">
+		<ul class="overlay-menu__list">
+			<li class="overlay-item">
+				<a [routerLink]="['miniature/', miniature._id]" class="overlay-item__link">
+					View
+					<span class="li-icon view-icon"></span>
+				</a>
+			</li>
+			<li class="overlay-item">
+				<a [routerLink]="['miniature/edit/', miniature._id]" class="overlay-item__link">
+					Edit
+					<span class="li-icon edit-icon"></span>
+				</a>
+			</li>
+			<li class="overlay-item alert">
+				<button type="button" class="overlay-button" (click)="deleteMiniature(miniature._id)">
+					Delete
+					<span class="li-icon delete-icon"></span>
+				</button>
+			</li>
+		</ul>	</div>
+</ng-container>
 
 <app-confirmation-modal
 	*ngIf="armyIdToDelete"
 	[message]="'Are you sure you want to delete this army?'"
 	(confirmed)="onDeleteConfirm(armyIdToDelete)"
+	(cancelled)="onDeleteCancel()"
+>
+</app-confirmation-modal>
+
+<app-confirmation-modal
+	*ngIf="miniatureIdToDelete"
+	[message]="'Are you sure you want to delete this miniature?'"
+	(confirmed)="onDeleteMiniatureConfirm(army._id, miniatureIdToDelete)"
 	(cancelled)="onDeleteCancel()"
 >
 </app-confirmation-modal>

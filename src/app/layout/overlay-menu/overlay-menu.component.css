@@ -32,7 +32,7 @@
 	bottom: 50px;
 	width: 35%;
 	min-width: 140px;
-	z-index: 199;
+	z-index: 201;
 	background-color: var(--lightBlack);
 	color: white;
 	border-radius: 6px;
@@ -51,7 +51,7 @@
 	margin: 8px 16px;
 	border-radius: 6px;
 	cursor: pointer;
-	padding: 0 8px;
+	padding: 4px 8px;
 }
 
 .overlay-item:hover {
@@ -64,12 +64,13 @@
 	display: inline-flex;
 	width: 100%;
 	align-items: center;
+	font-size: 13px;
 }
 
 .li-icon {
 	margin-left: auto;
-	height: 32px;
-	width: 32px;
+	height: 24px;
+	width: 24px;
 	background-color: #FFFFFF;
 }
 
@@ -101,5 +102,33 @@
 	color: #FD584A;
 	border: 0;
 	background-color: transparent;
-	font-size: 1rem;
+	font-size: 13px;
+}
+
+@media screen and (max-width: 767px) {
+	.overlay-menu-list-reverse {
+		position: absolute;
+		right: 1px;
+		bottom: 16px;
+		width: 35%;
+		min-width: 140px;
+		z-index: 201;
+		background-color: var(--lightBlack);
+		color: white;
+		border-radius: 6px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.overlay-menu-list-reverse {
+		position: absolute;
+		right: 1px;
+		top: 50px;
+		width: 35%;
+		min-width: 140px;
+		z-index: 201;
+		background-color: var(--lightBlack);
+		color: white;
+		border-radius: 6px;
+	}
 }

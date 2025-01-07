@@ -61,8 +61,8 @@ header > span {
 .miniature-step__img {
 	display: flex;
 	max-height: 260px;
-	width: 100%;
 	margin-bottom: 6px;
+	max-width: calc(100vw - 2em);
 }
 
 .miniature-gallery__img {

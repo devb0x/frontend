@@ -6,7 +6,8 @@
 	--lightOrange: hsl(36, 100%, 46%, .5);
 	--lightOrangeHover: hsl(36, 100%, 46%, .25);
 	--darkOrange: hsl(36, 100%, 30%, 1);
-	--lightBlack: hsl(0, 0%, 15%, 1)
+	--lightBlack: hsl(0, 0%, 15%, 1);
+	--ivory: hsl(48, 45%, 93%);
 }
 
 * {
@@ -74,7 +75,7 @@ main {
 .btn {
 
 }
-.btn-link {
+.btn:not(:disabled), .btn-link:not(:disabled) {
 	color: black;
 	font-size: 12px;
 	background-color: var(--lightOrange);
@@ -97,6 +98,7 @@ main {
 .btn-cancel:hover {
 	color: white;
 	background-color: var(--darkOrange);
+	transition: .2s ease-in-out;
 }
 .btn-confirm {
 
@@ -120,5 +122,9 @@ main {
 	background-color: var(--darkOrange);
 }
 
+ul {
+	list-style: none;
+	padding: 0;
+}
 
 

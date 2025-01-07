@@ -10,42 +10,10 @@
 	height: fit-content;
 }
 
-/*.hamburger-menu {*/
-/*	position: absolute;*/
-/*	z-index: 200;*/
-/*	bottom: 16px;*/
-/*	right: 4px;*/
-/*	border: 0;*/
-/*	border-radius: 4px;*/
-/*	height: 32px;*/
-/*	width: 32px;*/
-/*	cursor: pointer;*/
-/*	display: flex;*/
-/*	margin: auto;*/
-/*	justify-content: center;*/
-/*	font-size: 2rem;*/
-/*	background-color: transparent;*/
-/*}*/
-
-/*.hamburger-menu:hover {*/
-/*	background-color: var(--lightOrange);*/
-/*}*/
-
-/*.hamburger-menu > span {*/
-/*	margin: auto;*/
-/*	height: 100%;*/
-/*	display: flex;*/
-/*	align-items: center;*/
-/*}*/
-
 @media screen and (min-width: 768px) {
 	.armies-container {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
 		gap: 30px;
-	}
-
-	.hamburger-menu {
-		/*bottom: 20%;*/
 	}
 }

@@ -3,13 +3,15 @@ import {Router, RouterLink} from "@angular/router";
 import {ArmyService} from "../dashboard/army-list/army.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {NgFor, NgIf} from "@angular/common";
+
 import {ArmyInterface} from "../../models/army.interface";
+import {ToastService} from "../../services/toast.service";
 
 import { DropdownComponent } from "../../layout/dropdown/dropdown.component"
 import {ImageUploadComponent} from "./army-edit/image-upload/image-upload.component";
 import {MiniatureCardComponent} from "../miniature/miniature-card/miniature-card.component";
 import {ConfirmationModalComponent} from "../../layout/confirmation-modal/confirmation-modal.component";
-import {ToastService} from "../../services/toast.service";
+import {OverlayMenuComponent} from "../../layout/overlay-menu/overlay-menu.component";
 
 @Component({
 	selector: 'app-army',
@@ -21,7 +23,8 @@ import {ToastService} from "../../services/toast.service";
 		RouterLink,
 		ImageUploadComponent,
 		MiniatureCardComponent,
-		ConfirmationModalComponent
+		ConfirmationModalComponent,
+		OverlayMenuComponent
 	],
 	templateUrl: './army.component.html',
 	styleUrl: './army.component.css'

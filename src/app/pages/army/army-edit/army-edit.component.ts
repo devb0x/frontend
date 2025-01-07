@@ -9,8 +9,8 @@ import {environment} from "../../../../environments/environment";
 import {ImageUploadComponent} from "./image-upload/image-upload.component";
 import {ConfirmationModalComponent} from "../../../layout/confirmation-modal/confirmation-modal.component";
 import {NewMiniatureComponent} from "../../miniature/new-miniature/new-miniature.component";
-import {MiniatureInterface} from "../../../models/miniature.interface";
 import {ToastService} from "../../../services/toast.service";
+import {MiniatureCardComponent} from "../../miniature/miniature-card/miniature-card.component";
 
 
 const BACKEND_URL = `${environment.apiUrl}/army/`
@@ -26,10 +26,14 @@ const BACKEND_URL = `${environment.apiUrl}/army/`
 		RouterLink,
 		ImageUploadComponent,
 		ConfirmationModalComponent,
-		NewMiniatureComponent
+		NewMiniatureComponent,
+		MiniatureCardComponent
 	],
 	templateUrl: './army-edit.component.html',
-	styleUrl: '../army.component.css'
+	styleUrls: [
+		'../army.component.css',
+		'../army-edit/army-edit.component.css'
+	]
 })
 export class ArmyEditComponent {
 	armyId!: string
