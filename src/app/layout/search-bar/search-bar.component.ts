@@ -17,7 +17,8 @@ export class SearchBarComponent {
 	) {}
 
 	searchSubmit(form: NgForm) {
-		this.router.navigate(['/search-results'], {
+		console.log('search submit')
+		return this.router.navigate(['/search-results'], {
 			queryParams: { query: form.value.search }
 		})
 	}

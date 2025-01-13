@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 import { NgIf, NgFor } from "@angular/common"
 import {ActivatedRoute, RouterLink} from "@angular/router"
 
-import {forkJoin, Observable} from "rxjs"
+import {forkJoin, Observable, of} from "rxjs"
 
 import { SearchService } from "../../services/search.service"
 
@@ -13,6 +13,7 @@ import {UserInterface} from "../../models/user.interface";
 import { ArmyCardComponent } from "../../layout/army-card/army-card.component";
 import { MiniatureCardComponent } from "../miniature/miniature-card/miniature-card.component";
 import { UserCardComponent } from "../../layout/user-card/user-card.component";
+import {catchError} from "rxjs/operators";
 
 @Component({
 	selector: 'app-search-results',
@@ -46,11 +47,17 @@ export class SearchResultsComponent {
 			const query = params['query']; // Access the 'query' parameter
 			this.query = query
 
-				const searchObservables = [
-					this.searchService.searchArmies(query),
-					this.searchService.searchMiniatures(query),
-					this.searchService.searchUsers(query)
-				]
+			const searchObservables = [
+				this.searchService.searchArmies(query).pipe(
+					catchError(() => of([])) // Return an empty array if searchArmies fails
+				),
+				this.searchService.searchMiniatures(query).pipe(
+					catchError(() => of([])) // Return an empty array if searchMiniatures fails
+				),
+				this.searchService.searchUsers(query).pipe(
+					catchError(() => of([])) // Return an empty array if searchUsers fails
+				),
+			];
 
 			forkJoin(searchObservables).subscribe(
 				([armies, miniatures, users]) => {

@@ -2,6 +2,15 @@ import { Component } from '@angular/core';
 import {NgFor, NgIf} from "@angular/common";
 import {RouterLink} from "@angular/router";
 
+interface Step {
+	title: string;
+	description: string;
+	icon: string;
+	link?: string; // Optional, can be undefined
+	linkText?: string;
+	dot?: string;
+}
+
 @Component({
 	selector: 'app-how-it-works',
 	standalone: true,
@@ -14,7 +23,7 @@ import {RouterLink} from "@angular/router";
 	styleUrl: './how-it-works.component.css'
 })
 export class HowItWorksComponent {
-	steps = [
+	steps: Step[] = [
 		{
 			title: 'Organize your collection',
 			description: 'Keep track of all your Warhammer miniatures in one place.',
