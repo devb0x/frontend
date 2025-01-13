@@ -11,6 +11,7 @@ import { DropdownComponent } from "../../layout/dropdown/dropdown.component"
 import {ImageUploadComponent} from "./army-edit/image-upload/image-upload.component";
 import {MiniatureCardComponent} from "../miniature/miniature-card/miniature-card.component";
 import {ConfirmationModalComponent} from "../../layout/confirmation-modal/confirmation-modal.component";
+import {OverlayMenuComponent} from "../../layout/overlay-menu/overlay-menu.component";
 
 @Component({
 	selector: 'app-army',
@@ -22,7 +23,8 @@ import {ConfirmationModalComponent} from "../../layout/confirmation-modal/confir
 		RouterLink,
 		ImageUploadComponent,
 		MiniatureCardComponent,
-		ConfirmationModalComponent
+		ConfirmationModalComponent,
+		OverlayMenuComponent
 	],
 	templateUrl: './army.component.html',
 	styleUrl: './army.component.css'
