@@ -1,12 +1,14 @@
 @media screen and (max-width: 575.98px) {
 	.site-header {
 		max-width: 90%;
+		height: var(--navbarHeight);
+		max-height: var(--navbarHeight);
 	}
 	.navbar {
 		display: none;
 	}
 	.mobile-navbar {
-		position: fixed;
+		position: absolute;
 		inset: 84px 0;
 		width: 100vw;
 		background-color: #ffffff;
@@ -14,18 +16,19 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		height: calc(100vh - 84px);
-		z-index: 99999;
+		height: calc(100vh - var(--navbarHeight));
+		z-index: 90000;
 	}
 
 	.mobile-navbar.display {
 		display: flex;
 		background-color: #000000c9;
 		backdrop-filter: blur(8px) brightness(60%);
-		height: 90vh;
-		margin: 0;
+		height: calc(100vh - var(--navbarHeight));
+		margin: 89px 0;
 		padding: 0;
 		right: 0;
+		left: -6%;
 		flex-direction: row;
 		transform: translateX(0);
 	}
@@ -139,7 +142,6 @@
 	.nav-icon {
 		display: none;
 	}
-
 }
 
 @media screen and (min-width: 1190px) {
@@ -161,12 +163,14 @@
 	position: relative;
 	margin: auto auto 4em;
 	width: 1124px;
+	z-index: 99999;
 }
 
 .navbar-logo {
 	position: relative;
 	display: flex;
 	z-index: 2;
+	width: 140px;
 }
 
 .navbar-list {
@@ -197,7 +201,7 @@ li {
 .logo-link {
 	display: flex;
 	align-items: center;
-	margin-inline: auto;
+	margin-inline: 1em auto;
 }
 
 .navbar-list .link.link-border__left {

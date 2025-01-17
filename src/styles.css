@@ -8,6 +8,8 @@
 	--darkOrange: hsl(36, 100%, 30%, 1);
 	--lightBlack: hsl(0, 0%, 15%, 1);
 	--ivory: hsl(48, 45%, 93%);
+
+	--navbarHeight: 172px;
 }
 
 * {
