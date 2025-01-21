@@ -42,7 +42,7 @@
 		</form>
 		
 		<article>
-			<h2 class="article-title">Miniatures</h2>
+			<h3 class="article-title">Miniatures</h3>
 			<div *ngIf="army$.miniatures.length === 0">
 				No miniatures yet..
 			</div>
@@ -52,19 +52,30 @@
 				(miniatureAdded)="onMiniatureAdded()"
 			></app-new-miniature>
 			
-			<div *ngIf="army$.miniatures && army$.miniatures.length > 0">
-				<ul *ngFor="let miniature of army$.miniatures">
-					<li>
-						<app-miniature-card
-							[miniature]="miniature"
-							[link]="['/army', armyId, 'miniature', miniature._id || 'default']"
-						></app-miniature-card>
-<!--						<a routerLink="/army/{{armyId}}/miniature/edit/{{miniature._id}}">-->
-<!--							{{ miniature.name }}-->
-<!--						</a>-->
-					</li>
-				</ul>
-			</div>
+<!--			<div *ngIf="army$.miniatures && army$.miniatures.length > 0">-->
+<!--				<ul *ngFor="let miniature of army$.miniatures">-->
+<!--					<li>-->
+<!--						<app-miniature-card-->
+<!--							[miniature]="miniature"-->
+<!--							[link]="['/army', armyId, 'miniature', miniature._id || 'default']"-->
+<!--						></app-miniature-card>-->
+<!--&lt;!&ndash;						<a routerLink="/army/{{armyId}}/miniature/edit/{{miniature._id}}">&ndash;&gt;-->
+<!--&lt;!&ndash;							{{ miniature.name }}&ndash;&gt;-->
+<!--&lt;!&ndash;						</a>&ndash;&gt;-->
+<!--					</li>-->
+<!--				</ul>-->
+<!--			</div>-->
+			<ul *ngIf="army$.miniatures && army$.miniatures.length > 0" class="miniatures-list">
+				<li *ngFor="let miniature of army$.miniatures">
+					<app-miniature-card
+						[link]="['/army', armyId, 'miniature', miniature._id || 'default']"
+						[miniature]="miniature">
+					</app-miniature-card>
+					<div>
+						<app-overlay-menu [army]="army$" [miniature]="miniature"></app-overlay-menu>
+					</div>
+				</li>
+			</ul>
 		</article>
 		
 		<article>

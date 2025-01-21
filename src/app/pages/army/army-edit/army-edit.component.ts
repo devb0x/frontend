@@ -11,6 +11,7 @@ import {ConfirmationModalComponent} from "../../../layout/confirmation-modal/con
 import {NewMiniatureComponent} from "../../miniature/new-miniature/new-miniature.component";
 import {ToastService} from "../../../services/toast.service";
 import {MiniatureCardComponent} from "../../miniature/miniature-card/miniature-card.component";
+import {OverlayMenuComponent} from "../../../layout/overlay-menu/overlay-menu.component";
 
 
 const BACKEND_URL = `${environment.apiUrl}/army/`
@@ -27,7 +28,8 @@ const BACKEND_URL = `${environment.apiUrl}/army/`
 		ImageUploadComponent,
 		ConfirmationModalComponent,
 		NewMiniatureComponent,
-		MiniatureCardComponent
+		MiniatureCardComponent,
+		OverlayMenuComponent
 	],
 	templateUrl: './army-edit.component.html',
 	styleUrls: [

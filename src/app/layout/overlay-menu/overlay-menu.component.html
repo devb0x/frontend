@@ -34,13 +34,13 @@
 	<div *ngIf="isMenuOpen" class="overlay-menu">
 		<ul class="overlay-menu__list">
 			<li class="overlay-item">
-				<a [routerLink]="['miniature/', miniature._id]" class="overlay-item__link">
+				<a [routerLink]="['/army', army._id, 'miniature', miniature._id]" class="overlay-item__link">
 					View
 					<span class="li-icon view-icon"></span>
 				</a>
 			</li>
 			<li class="overlay-item">
-				<a [routerLink]="['miniature/edit/', miniature._id]" class="overlay-item__link">
+				<a [routerLink]="['/army', army._id, 'miniature', 'edit', miniature._id]" class="overlay-item__link">
 					Edit
 					<span class="li-icon edit-icon"></span>
 				</a>
