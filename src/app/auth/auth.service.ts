@@ -112,7 +112,6 @@ export class AuthService {
 			expirationDate: new Date(expirationDate),
 			userId: userId
 		}
-
 	}
 
 	getAuthStatusListener() {

@@ -49,7 +49,4 @@ export class ArmyListComponent {
 		this.isLoading = false
 	}
 
-	openOverlayMenu() {
-		console.log('menu open')
-	}
 }

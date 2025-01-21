@@ -26,7 +26,7 @@ import { SearchBarComponent } from "../search-bar/search-bar.component"
 	]
 })
 export class NavbarComponent {
-	userIsAuth:boolean = false
+	userIsAuth: boolean = false
 	private authListenerSubs!: Subscription
 	private routerEventsSub!: Subscription
 	mobileMenuOpen: boolean = false
@@ -46,8 +46,6 @@ export class NavbarComponent {
 				this.userIsAuth = isUserAuth
 			})
 		this.window.addEventListener('scroll', this.userScroll.bind(this))
-		console.log('Initial scrollY:', this.window.scrollY);
-		console.log('Window height:', this.windowHeight);
 	}
 
 	ngOnDestroy() {
@@ -61,8 +59,6 @@ export class NavbarComponent {
 	}
 
 	toggleMobileNav() {
-		console.log('toggle mobile nav called')
-
 		this.mobileMenuOpen = !this.mobileMenuOpen;
 		if (!this.mobileMenuOpen) {
 			this.hiddeMobileNav()
@@ -88,7 +84,6 @@ export class NavbarComponent {
 
 	userScroll() {
 		if (this.mobileMenuOpen && this.window.scrollY >= this.windowHeight) {
-			console.log('here you go')
 			this.toggleMobileNav()
 		}
 	}
