@@ -3,7 +3,10 @@ import { MiniatureInterface } from "./miniature.interface"
 
 export interface ArmyInterface {
 	_id: string
-	ownerId: string
+	ownerId: {
+		_id: string
+		username: string
+	}
 	name: string
 	category: string
 	subCategory: string

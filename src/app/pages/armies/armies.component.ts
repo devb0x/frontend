@@ -18,7 +18,10 @@ import {HttpErrorResponse} from "@angular/common/http";
 		ArmyCardComponent
 	],
 	templateUrl: './armies.component.html',
-	styleUrl: './armies.component.css'
+	styleUrls: [
+		'./armies.component.css',
+		'../dashboard/army-list/army-list.component.css'
+	]
 })
 export class ArmiesComponent {
 	constructor(private armyService: ArmyService) {}

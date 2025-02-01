@@ -52,19 +52,6 @@
 				(miniatureAdded)="onMiniatureAdded()"
 			></app-new-miniature>
 			
-<!--			<div *ngIf="army$.miniatures && army$.miniatures.length > 0">-->
-<!--				<ul *ngFor="let miniature of army$.miniatures">-->
-<!--					<li>-->
-<!--						<app-miniature-card-->
-<!--							[miniature]="miniature"-->
-<!--							[link]="['/army', armyId, 'miniature', miniature._id || 'default']"-->
-<!--						></app-miniature-card>-->
-<!--&lt;!&ndash;						<a routerLink="/army/{{armyId}}/miniature/edit/{{miniature._id}}">&ndash;&gt;-->
-<!--&lt;!&ndash;							{{ miniature.name }}&ndash;&gt;-->
-<!--&lt;!&ndash;						</a>&ndash;&gt;-->
-<!--					</li>-->
-<!--				</ul>-->
-<!--			</div>-->
 			<ul *ngIf="army$.miniatures && army$.miniatures.length > 0" class="miniatures-list">
 				<li *ngFor="let miniature of army$.miniatures">
 					<app-miniature-card

@@ -1,7 +1,7 @@
 import { PictureInterface } from "./picture.interface"
 import { PaintInterface } from "./paint.interface"
 
-export interface StepInterface {
+export interface MiniatureStepInterface {
 	_id?: string
 	number: number
 	title: string
@@ -12,10 +12,12 @@ export interface StepInterface {
 
 export interface MiniatureInterface {
 	_id?: string
-	ownerId?: string
+	ownerId?: {
+		_id: string
+		username: string
+	}
 	armyId?: string
 	name: string
-	steps: StepInterface[]
+	steps: MiniatureStepInterface[]
 	thumbnailUrl?: string
-	// paintsUsed?: PaintInterface[]
 }

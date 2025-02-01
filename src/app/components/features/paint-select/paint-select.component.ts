@@ -21,7 +21,6 @@ export class PaintSelectComponent {
 
 	paints: any[] = []
 
-
 	constructor(private http: HttpClient) {}
 
 	ngOnInit() {
@@ -44,7 +43,6 @@ export class PaintSelectComponent {
 			this.paintSelected.emit({ type, brand, name: selectedPaintName });
 		}
 	}
-
 
 	// Remove paint from the step
 	removePaintFromStep(paint: { type: string, name: string, brand: string }) {

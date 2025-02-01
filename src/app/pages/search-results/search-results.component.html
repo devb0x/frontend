@@ -7,10 +7,12 @@
 	
 	<div *ngIf="armies.length > 0">
 		<h2>Armies</h2>
-		<app-army-card
-			*ngFor="let army of armies"
-			[army]="army"
-		></app-army-card>
+		<div class="armies-container">
+			<app-army-card
+				*ngFor="let army of armies"
+				[army]="army"
+			></app-army-card>
+		</div>
 	</div>
 	
 	<div *ngIf="miniatures.length > 0">

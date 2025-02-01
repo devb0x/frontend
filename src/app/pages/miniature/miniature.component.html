@@ -5,7 +5,7 @@
 			<span class="army-category">{{ army.category }} - </span>
 			<span class="army-subcategory">{{ army.subCategory }}</span>
 		</div>
-		<span>Owner: {{ army.ownerId }}</span>
+		<span>Owner: {{ army.ownerId.username }}</span>
 		<div>
 			<a routerLink="/army/{{armyId}}" class="btn-link">Back to army</a>
 		</div>

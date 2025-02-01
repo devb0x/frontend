@@ -28,7 +28,8 @@ import {catchError} from "rxjs/operators";
 	],
 	templateUrl: './search-results.component.html',
 	styleUrls: [
-		'./search-results.component.css'
+		'./search-results.component.css',
+		'../dashboard/army-list/army-list.component.css'
 		]
 })
 export class SearchResultsComponent {

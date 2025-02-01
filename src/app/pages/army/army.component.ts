@@ -63,7 +63,7 @@ export class ArmyComponent {
 				.subscribe(
 					(army: any) => {
 						this.army$ = army
-						if (army.ownerId === userId && edit) {
+						if (army.ownerId._id === userId && edit) {
 							this.editLink = true
 							console.warn(this.army$)
 						}

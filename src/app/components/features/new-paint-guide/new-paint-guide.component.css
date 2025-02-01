@@ -1,0 +1,67 @@
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+label {
+	display: block;
+}
+
+.input {
+	padding: 10px;
+}
+
+.textarea {
+	width: 100%;
+	min-height: 8em;
+	padding: 10px;
+	font-size: 15px;
+}
+
+.li-item {
+	display: inline-flex;
+	gap: 16px;
+	justify-content: space-between;
+	flex-direction: column;
+	width: 100%;
+	outline: 1px solid black;
+	padding: 1em;
+	overflow: hidden;
+}
+
+.li-item__img {
+	margin: auto;
+}
+
+.filename-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	overflow: hidden;
+}
+
+.li-icon {
+	margin-left: clamp(32px, 10%, 32px);
+	height: 24px;
+	width: 24px;
+	background-color: royalblue;
+	display: block;
+	cursor: pointer;
+}
+
+.delete-icon {
+	background-color: #FD584A;
+	-webkit-mask: url('/assets/delete-icon.svg');
+	mask: url('/assets/icons/delete-icon.svg') no-repeat center;
+}
+
+@media screen and (min-width: 768px) {
+	.li-item {
+		flex-direction: row;
+	}
+	.li-item__img {
+		margin: unset;
+	}
+}

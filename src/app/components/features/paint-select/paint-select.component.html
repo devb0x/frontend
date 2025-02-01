@@ -1,9 +1,5 @@
-<div>
-	<hr>
-	paint select works
-</div>
-
 <div class="paint-container">
+	<h2>Paints Selector</h2>
 	<!-- Tabs or Accordion for each Paint Type -->
 	<div *ngFor="let paintType of paints" class="paint-section">
 		<h3>{{ paintType.type }} Paints</h3>
@@ -17,7 +13,7 @@
 		
 		<!-- Add to Step button, passing the select element -->
 		<button (click)="addPaintToStep(paintType.type, paintType.brand, selectElement)">
-			Add to Step
+			Add
 		</button>
 	</div>
 	

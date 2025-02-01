@@ -1,0 +1,71 @@
+<section>
+	<div>
+		<a routerLink="/dashboard" class="btn btn-link">Cancel</a>
+	</div>
+	<div>
+		<h1>Create Paint Guide</h1>
+		<form [formGroup]="guideForm">
+			<!-- Title Input -->
+			<label for="title">Paint Guide Name</label>
+			<input type="text" id="title" formControlName="title" class="input" required>
+			
+			<!-- Steps -->
+			<div formArrayName="steps">
+				<div
+					*ngFor="let step of steps.controls;
+					let i = index" [formGroupName]="i"
+				>
+					<label for="stepDescription-{{ i }}">Step {{ i + 1 }}</label>
+					<textarea id="stepDescription-{{ i }}" formControlName="stepDescription" class="textarea"></textarea>
+					
+					<div class="upload-section">
+						<!-- Display previews and file names -->
+						<ul>
+							<li *ngFor="let picture of step.get('pictures')?.value; let pictureIndex = index" class="li-item">
+								<img
+									*ngIf="picture.previewUrl"
+									[src]="picture.previewUrl"
+									alt="Preview"
+									class="li-item__img"
+									style="max-width: 150px; max-height: 150px; object-fit: contain;"
+								/>
+								<div class="filename-wrapper">
+									<p>{{ picture.file.name }}</p>
+									<span
+										(click)="removePicture(i, pictureIndex)"
+										class="li-icon delete-icon"
+									></span>
+								</div>
+							</li>
+						</ul>
+						
+						<label for="fileInput-{{i}}" class="sr-only">Upload Images for Paint Guide Step {{ i + 1 }}</label>
+						<input
+							#fileInput
+							id="fileInput-{{i}}"
+							type="file"
+							(change)="onFileSelected($event, i)"
+							multiple
+							accept="image/*"
+							hidden
+						/>
+						<!-- Custom button to trigger the file input -->
+						<button type="button" (click)="fileInput.click()">
+							{{ uploadText }}
+						</button>
+					</div>
+				</div>
+			</div>
+			<button (click)="addStep()" type="button" class="btn btn-cancel">add step</button>
+			
+			<!-- Paints list -->
+			<app-paint-select
+				[selectedPaints]="selectedPaints"
+				(paintSelected)="handlePaintSelected($event)"
+				(paintRemoved)="handlePaintRemoved($event)">
+			</app-paint-select>
+			
+			<button type="submit" (click)="formSubmit()" class="btn btn-link">Create</button>
+		</form>
+	</div>
+</section>

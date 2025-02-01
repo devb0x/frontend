@@ -39,7 +39,7 @@ export class ArmyEditGuard implements CanActivate {
 				if (!army) {
 					return this.router.createUrlTree(['/404']);
 				}
-				if (army.ownerId !== userId) {
+				if (army.ownerId._id !== userId) {
 					console.warn("You're not authorized!")
 					return this.router.createUrlTree(['/dashboard']);
 				}

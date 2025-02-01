@@ -61,13 +61,9 @@ export class MiniatureComponent {
 			});
 
 		})
-		if (this.army.ownerId === userId && edit) {
+		if (this.army.ownerId._id === userId && edit) {
 			this.editLink = true
 		}
 	}
-
-
-
-
 
 }
