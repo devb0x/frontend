@@ -7,14 +7,16 @@ import { Subject, Subscription, takeUntil } from "rxjs";
 
 import { DropdownComponent } from "../../layout/dropdown/dropdown.component"
 import { ArmyListComponent } from "./army-list/army-list.component"
+import { PaintGuideListComponent } from "./paint-guide-list/paint-guide-list.component"
 
 @Component({
 	selector: 'app-dashboard',
 	standalone: true,
 	imports: [
 		RouterLink,
+		DropdownComponent,
 		ArmyListComponent,
-		DropdownComponent
+		PaintGuideListComponent
 	],
 	templateUrl: './dashboard.component.html',
 	styleUrl: './dashboard.component.css'

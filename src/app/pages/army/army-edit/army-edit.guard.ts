@@ -3,7 +3,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, UrlTr
 import {Observable, of, throwError} from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import {AuthService} from "../../../auth/auth.service";
-import {ArmyService} from "../../dashboard/army-list/army.service";
+import {ArmyService} from "../../../services/army.service";
 import {ArmyInterface} from "../../../models/army.interface";
 
 @Injectable({

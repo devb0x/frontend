@@ -1,0 +1,6 @@
+<div *ngIf="paintGuides" class="container">
+	<div *ngFor="let guide of paintGuides" class="card-wrapper">
+		<app-paint-guide-card [paintGuide]="guide"></app-paint-guide-card>
+		<app-overlay-menu [paintGuide]="guide"></app-overlay-menu>
+	</div>
+</div>

@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 import { NgIf, NgFor } from "@angular/common"
 import { HttpErrorResponse } from "@angular/common/http"
 
-import { ArmyService } from "./army.service"
+import { ArmyService } from "../../../services/army.service"
 import { ArmyInterface } from '../../../models/army.interface'
 
 import { ArmyCardComponent } from "../../../layout/army-card/army-card.component"

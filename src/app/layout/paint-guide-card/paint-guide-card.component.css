@@ -1,0 +1,16 @@
+.card {
+	border: 1px solid hsl(36, 100%, 78%);
+	border-radius: 6px;
+}
+
+
+.card-title > a {
+	display: flex;
+	flex-direction: column;
+	padding: 0 4px;
+	text-decoration: none;
+	color: black;
+	margin: 12px 0 6px;
+	font-size: 14px;
+	font-weight: 600;
+}

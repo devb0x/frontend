@@ -1,8 +1,8 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {environment} from "../../../../environments/environment";
+import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
-import {ToastService} from "../../../services/toast.service";
+import {ToastService} from "./toast.service";
 import {Router} from "@angular/router";
 
 const BACKEND_URL = `${environment.apiUrl}/army`
@@ -37,7 +37,7 @@ export class ArmyService {
 
 	getArmy(id: string): Observable<any> {
 		if (!id) {
-			throw new Error("army Id is required")
+			throw new Error("Army Id is required")
 		}
 
 		return this.http.get<any>(

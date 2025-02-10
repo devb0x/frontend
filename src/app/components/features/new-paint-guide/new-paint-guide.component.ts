@@ -39,7 +39,6 @@ export class NewPaintGuideComponent {
 	uploadText: string = 'Add picture';
 	selectedPaints: PaintInterface[] = []
 
-
 	constructor(
 		private fb: FormBuilder,
 		private dashboardService: DashboardService,
@@ -77,26 +76,42 @@ export class NewPaintGuideComponent {
 
 	onFileSelected(event: Event, stepIndex: number): void {
 		const input = event.target as HTMLInputElement;
-		const step = this.steps.at(stepIndex) as FormGroup;
 
-		if (input.files) {
-			const picturesArray = step.get('pictures') as FormArray;
+		if (!input.files || input.files.length === 0) return;
 
-			Array.from(input.files).forEach((file) => {
-				const reader = new FileReader();
-				reader.onload = () => {
-					picturesArray.push(
-						this.fb.control({
-							file, // Store the actual file
-							previewUrl: reader.result, // Store the generated preview URL
-						})
-					);
-				};
-				reader.readAsDataURL(file); // Generate the preview URL
-			});
+		const selectedFiles = Array.from(input.files);
 
-			input.value = ''; // Reset the input field
+		// Get all existing filenames from all steps
+		const allExistingFileNames: string[] = this.steps.controls
+			.flatMap(step => (step.get('pictures') as FormArray).value.map((pic: any) => pic.fileName));
+
+		// Filter out duplicate files across ALL steps
+		const newFiles = selectedFiles.filter(file => !allExistingFileNames.includes(file.name));
+
+		if (newFiles.length < selectedFiles.length) {
+			this.toastService.showError('Some files were skipped because they have duplicate names.');
 		}
+
+		// Process only new files
+		const step = this.steps.at(stepIndex) as FormGroup;
+		const picturesArray = step.get('pictures') as FormArray;
+
+		newFiles.forEach((file) => {
+			const reader = new FileReader();
+			reader.onload = () => {
+				picturesArray.push(
+					this.fb.group({
+						file, // Store the actual file
+						previewUrl: reader.result, // Store the generated preview URL
+						fileUrl: '', // Keep the structure consistent with existing pictures
+						fileName: file.name // Store the file name
+					})
+				);
+			};
+			reader.readAsDataURL(file); // Generate the preview URL
+		});
+
+		input.value = ''; // Reset the input field
 	}
 
 	removePicture(stepIndex: number, pictureIndex: number): void {
@@ -105,7 +120,6 @@ export class NewPaintGuideComponent {
 
 		if (picturesArray) {
 			picturesArray.removeAt(pictureIndex); // Remove the picture at the specified index
-			console.log(`Removed picture at index ${pictureIndex} from step ${stepIndex}`);
 		}
 	}
 
@@ -170,14 +184,10 @@ export class NewPaintGuideComponent {
 						}
 					},
 					(error) => {
-						console.log(error)
+						console.error(error)
 						this.toastService.showError("Something went wrong. Please try again.");
 					}
 			)
 	}
-
-
-
-
 
 }

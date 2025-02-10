@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable, BehaviorSubject, map, forkJoin} from 'rxjs';
-import { ArmyInterface } from '../../models/army.interface';
-import { MiniatureInterface } from '../../models/miniature.interface';
-import { environment } from '../../../environments/environment';
-import {PictureInterface} from "../../models/picture.interface";
+import { ArmyInterface } from '../models/army.interface';
+import { MiniatureInterface } from '../models/miniature.interface';
+import { environment } from '../../environments/environment';
+import {PictureInterface} from "../models/picture.interface";
 
 const BACKEND_URL = `${environment.apiUrl}/army/`;
 

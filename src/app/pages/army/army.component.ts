@@ -1,6 +1,6 @@
 import {Component, Input, Output} from '@angular/core';
 import {Router, RouterLink} from "@angular/router";
-import {ArmyService} from "../dashboard/army-list/army.service";
+import {ArmyService} from "../../services/army.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {NgFor, NgIf} from "@angular/common";
 

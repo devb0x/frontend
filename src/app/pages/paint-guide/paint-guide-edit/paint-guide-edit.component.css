@@ -1,0 +1,13 @@
+.picture-wrapper {
+	display: flex;
+	outline: 1px solid red;
+	flex-direction: column;
+	width: fit-content;
+	text-align: center;
+}
+
+.picTest {
+	height: 150px;
+	width: 150px;
+	object-fit: cover;
+}

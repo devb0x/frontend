@@ -3,7 +3,7 @@ import {ActivatedRouteSnapshot, Resolve} from "@angular/router"
 
 import { Observable } from "rxjs"
 
-import { ArmyService } from "../pages/dashboard/army-list/army.service"
+import { ArmyService } from "../services/army.service"
 
 @Injectable({ providedIn: 'root' })
 export class MiniatureResolver implements Resolve<any> {

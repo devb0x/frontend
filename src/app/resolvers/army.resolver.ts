@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import {ArmyService} from "../pages/dashboard/army-list/army.service";
+import {ArmyService} from "../services/army.service";
 import {ArmyInterface} from "../models/army.interface";
 
 @Injectable({

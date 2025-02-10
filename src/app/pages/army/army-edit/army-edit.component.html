@@ -6,7 +6,7 @@
 				<span class="army-category">{{ army$.category }} - </span>
 				<span class="army-subcategory">{{ army$.subCategory }}</span>
 			</div>
-			<span>Owner: {{ army$.ownerId }}</span>
+			<span>Owner: {{ army$.ownerId.username }}</span>
 		</header>
 		
 		<form [formGroup]="armyForm" (submit)="formSubmit()">

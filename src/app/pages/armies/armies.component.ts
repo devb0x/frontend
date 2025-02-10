@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 import { NgIf, NgFor } from "@angular/common"
 
 import { ArmyInterface } from "../../models/army.interface"
-import { ArmyService } from "../dashboard/army-list/army.service"
+import { ArmyService } from "../../services/army.service"
 
 import { SpinnerComponent } from "../../layout/spinner/spinner.component"
 import { ArmyCardComponent } from "../../layout/army-card/army-card.component"

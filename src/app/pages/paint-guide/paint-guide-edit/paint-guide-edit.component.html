@@ -1,0 +1,71 @@
+<section>
+	<div>
+		<a routerLink="/dashboard" class="btn btn-link">Cancel</a>
+	</div>
+	<div>
+		<h1>Edit Paint Guide: {{ paintGuide$?.title}}</h1>
+		<form [formGroup]="guideForm" *ngIf="paintGuide$">
+			<!-- Title Input -->
+			<label for="title">Paint Guide Name</label>
+			<input type="text" id="title" formControlName="title" class="input" required>
+			
+			<!-- Steps -->
+			<div formArrayName="steps" *ngIf="paintGuide$.steps">
+				<div
+					*ngFor="let step of steps.controls
+					let stepIndex = index" [formGroupName]="stepIndex"
+				>
+					<label for="stepDescription-{{ stepIndex }}">Step {{ stepIndex + 1 }}</label>
+					<textarea id="stepDescription-{{ stepIndex }}" formControlName="stepDescription" class="textarea"></textarea>
+					
+					
+					<div class="upload-section">
+							<div *ngFor="let picture of getPicturesArray(stepIndex).controls; let pictureIndex = index">
+								<img
+									[src]="picture?.value.fileUrl || picture?.value.previewUrl"
+									[alt]="picture.value.fileName"
+									class="picTest"
+								>
+								<button (click)="removePicture(stepIndex, pictureIndex, picture?.value._id, picture.value.fileName)">Remove</button>
+							</div>
+						</div>
+			
+						<label for="fileInput-{{stepIndex}}" class="sr-only">Upload Images for Paint Guide Step {{ stepIndex + 1 }}</label>
+						<input
+							#fileInput
+							id="fileInput-{{stepIndex}}"
+							type="file"
+							(change)="onFileSelected($event, stepIndex)"
+							multiple
+							accept="image/*"
+							hidden
+						/>
+					
+					<!-- Custom button to trigger the file input -->
+						<button type="button" (click)="fileInput.click()">
+							{{ uploadText }}
+						</button>
+					</div>
+				</div>
+			<button (click)="addStep()" type="button" class="btn btn-cancel">add step</button>
+			
+			Paints list
+			<ul *ngIf = selectedPaints?.length>
+				<div *ngFor="let paint of selectedPaints">
+					<button (click)="handlePaintRemoved(paint)">
+						delete
+					</button>
+					<li>{{ paint.name }}</li>
+				</div>
+			</ul>
+			
+			<app-paint-select
+				[selectedPaints]="(selectedPaints)"
+				(paintSelected)="handlePaintSelected($event)"
+				(paintRemoved)="handlePaintRemoved($event)">
+			</app-paint-select>
+			
+			<button type="submit" (click)="formSubmit()" class="btn btn-link">Save</button>
+		</form>
+	</div>
+</section>

@@ -1,0 +1,10 @@
+<div *ngIf="paintGuide" class="card">
+	<h3 class="card-title">
+		<a
+			[routerLink]="['/paint-guide', paintGuide._id]"
+			class="link"
+		>
+			{{ paintGuide.title }}
+		</a>
+	</h3>
+</div>

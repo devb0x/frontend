@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 
-import {ArmyService} from "../dashboard/army-list/army.service";
-import { MiniatureService } from "./miniature.service"
+import {ArmyService} from "../../services/army.service";
+import { MiniatureService } from "../../services/miniature.service"
 import {NgIf, NgFor} from "@angular/common";
 import {MiniatureInterface} from "../../models/miniature.interface";
 import {PictureInterface} from "../../models/picture.interface";

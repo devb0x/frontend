@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core'
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output, SimpleChanges} from '@angular/core'
 import { HttpClient } from "@angular/common/http"
 import {NgFor, NgIf} from "@angular/common"
 
@@ -12,7 +12,7 @@ import { PaintInterface } from "../../../models/paint.interface"
 		NgIf
 	],
 	templateUrl: './paint-select.component.html',
-	styleUrl: './paint-select.component.css'
+	styleUrl: './paint-select.component.css',
 })
 export class PaintSelectComponent {
 	@Output() paintSelected = new EventEmitter<{ type: string; brand: string; name: string }>();

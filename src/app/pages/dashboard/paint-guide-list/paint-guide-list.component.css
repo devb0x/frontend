@@ -1,0 +1,11 @@
+.container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}
+
+.card-wrapper {
+	position: relative;
+	height: fit-content;
+}

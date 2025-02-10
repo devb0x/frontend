@@ -11,11 +11,12 @@ import { ArmyComponent } from "./pages/army/army.component"
 import { ArmyEditComponent } from "./pages/army/army-edit/army-edit.component"
 
 import {ArmyResolver} from "./resolvers/army.resolver";
+import {MiniatureResolver} from "./resolvers/miniature.resolver";
+import {PaintGuideResolver} from "./resolvers/paint-guide.resolver";
 
 import {HomepageComponent} from "./pages/homepage/homepage.component";
 import {MiniatureComponent} from "./pages/miniature/miniature.component";
 import {MiniatureEditComponent} from "./pages/miniature/miniature-edit/miniature-edit.component";
-import {MiniatureResolver} from "./resolvers/miniature.resolver";
 import {MiniatureStepEditComponent} from "./pages/miniature/miniature-step-edit/miniature-step-edit.component";
 import {ArmiesComponent} from "./pages/armies/armies.component";
 import {SearchResultsComponent} from "./pages/search-results/search-results.component";
@@ -25,6 +26,8 @@ import {RetrievePasswordComponent} from "./auth/retrieve-password/retrieve-passw
 import {ResetPasswordComponent} from "./auth/reset-password/reset-password.component";
 import {ProfileComponent} from "./pages/profile/profile.component";
 import {NewPaintGuideComponent} from "./components/features/new-paint-guide/new-paint-guide.component";
+import {PaintGuideComponent} from "./pages/paint-guide/paint-guide.component";
+import {PaintGuideEditComponent} from "./pages/paint-guide/paint-guide-edit/paint-guide-edit.component";
 
 export const routes: Routes = [
 	{
@@ -125,6 +128,17 @@ export const routes: Routes = [
 		component: ArmyEditComponent,
 		canActivate: [AuthGuard, ArmyEditGuard],
 		resolve: { armyData: ArmyResolver }
+	},
+	{
+		path: 'paint-guide/:paintGuideId',
+		component: PaintGuideComponent,
+		canActivate: [AuthGuard],
+		resolve: { paintGuideData: PaintGuideResolver }
+	},
+	{
+		path: 'paint-guide/edit/:paintGuideId',
+		component : PaintGuideEditComponent,
+		resolve: { paintGuideData: PaintGuideResolver }
 	},
 	{
 		path: 'armies',
