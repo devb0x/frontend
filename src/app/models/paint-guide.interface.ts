@@ -12,7 +12,7 @@ export interface PaintGuideStepInterface {
 export interface PaintGuideInterface {
 	paintsUsed: []
 	_id?: string
-	ownerId?: {
+	ownerId: {
 		_id: string
 		username: string
 	}

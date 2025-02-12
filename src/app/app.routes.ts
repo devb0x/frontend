@@ -28,6 +28,7 @@ import {ProfileComponent} from "./pages/profile/profile.component";
 import {NewPaintGuideComponent} from "./components/features/new-paint-guide/new-paint-guide.component";
 import {PaintGuideComponent} from "./pages/paint-guide/paint-guide.component";
 import {PaintGuideEditComponent} from "./pages/paint-guide/paint-guide-edit/paint-guide-edit.component";
+import {PaintGuideEditGuard} from "./pages/paint-guide/paint-guide-edit/paint-guide-edit.guard";
 
 export const routes: Routes = [
 	{
@@ -132,12 +133,12 @@ export const routes: Routes = [
 	{
 		path: 'paint-guide/:paintGuideId',
 		component: PaintGuideComponent,
-		canActivate: [AuthGuard],
 		resolve: { paintGuideData: PaintGuideResolver }
 	},
 	{
 		path: 'paint-guide/edit/:paintGuideId',
 		component : PaintGuideEditComponent,
+		canActivate: [AuthGuard, PaintGuideEditGuard],
 		resolve: { paintGuideData: PaintGuideResolver }
 	},
 	{
@@ -157,5 +158,3 @@ export const routes: Routes = [
 		redirectTo: '/404',
 	}
 ];
-
-

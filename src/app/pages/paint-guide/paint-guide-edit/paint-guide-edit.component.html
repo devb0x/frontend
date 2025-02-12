@@ -16,8 +16,12 @@
 					let stepIndex = index" [formGroupName]="stepIndex"
 				>
 					<label for="stepDescription-{{ stepIndex }}">Step {{ stepIndex + 1 }}</label>
-					<textarea id="stepDescription-{{ stepIndex }}" formControlName="stepDescription" class="textarea"></textarea>
-					
+					<textarea
+						id="stepDescription-{{ stepIndex }}"
+						formControlName="stepDescription"
+						class="textarea"
+						(change)="onStepDescriptionChange(stepIndex)"
+					></textarea>
 					
 					<div class="upload-section">
 							<div *ngFor="let picture of getPicturesArray(stepIndex).controls; let pictureIndex = index">
@@ -47,7 +51,14 @@
 						</button>
 					</div>
 				</div>
-			<button (click)="addStep()" type="button" class="btn btn-cancel">add step</button>
+			<button
+				(click)="addStep()"
+				[disabled]="!isStepValid"
+				type="button"
+				class="btn btn-cancel"
+			>
+				add step
+			</button>
 			
 			Paints list
 			<ul *ngIf = selectedPaints?.length>

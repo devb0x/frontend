@@ -36,8 +36,9 @@ interface PaintGuideResponse {
 
 export class NewPaintGuideComponent {
 	guideForm!: FormGroup
-	uploadText: string = 'Add picture';
+	uploadText: string = 'Add picture'
 	selectedPaints: PaintInterface[] = []
+	isStepValid: boolean = false
 
 	constructor(
 		private fb: FormBuilder,
@@ -66,12 +67,40 @@ export class NewPaintGuideComponent {
 		return this.steps.at(stepIndex).get('pictures') as FormArray;
 	}
 
+	previousStepValide() {
+		let stepIndex = this.guideForm.value.steps.length - 1
+		console.log(stepIndex)
+		if (this.guideForm.value.steps[stepIndex].stepDescription !== '' || undefined) {
+			this.isStepValid = false
+		} else (
+			this.isStepValid = true
+		)
+	}
+
 	addStep(): void {
-		const stepForm = this.fb.group({
-			stepDescription: ['', Validators.required],
-			pictures: this.fb.array([])
-		});
-		this.steps.push(stepForm); // Add new step to FormArray
+		if (this.isStepValid) {
+			const stepForm = this.fb.group({
+				stepDescription: ['', Validators.required],
+				pictures: this.fb.array([]),
+			});
+			this.steps.push(stepForm);
+
+			// Start listening to the new step's description changes
+			const lastStep = this.steps.at(this.steps.length - 1) as FormGroup;
+			lastStep.get('stepDescription')?.valueChanges.subscribe((value) => {
+				this.isStepValid = value.trim() !== ''; // Update validity based on input
+			});
+
+			this.isStepValid = false
+		}
+	}
+
+	onStepDescriptionChange(index: number): void {
+		const step = this.guideForm.get(`steps.${index}`) as FormGroup;
+		if (step) {
+			const description = step.get('stepDescription')?.value;
+			this.isStepValid = !!(description && description.trim() !== '');
+		}
 	}
 
 	onFileSelected(event: Event, stepIndex: number): void {
@@ -153,7 +182,12 @@ export class NewPaintGuideComponent {
 				pictures: step.pictures.map((picture: any) => ({
 					fileName: picture.file.name,  // Send only the file names here
 				})),
-			})),
+			}))
+			.filter((step: any) => step.stepDescription && step.stepDescription.trim() !== '')
+				.map((step: any, index: number) => ({
+					...step,
+					number: index + 1 // Reassign the numbers after filtering
+				})),
 			paintsUsed: this.selectedPaints
 		};
 
@@ -189,5 +223,4 @@ export class NewPaintGuideComponent {
 					}
 			)
 	}
-
 }

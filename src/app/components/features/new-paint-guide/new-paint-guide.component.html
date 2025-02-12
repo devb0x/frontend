@@ -16,7 +16,7 @@
 					let i = index" [formGroupName]="i"
 				>
 					<label for="stepDescription-{{ i }}">Step {{ i + 1 }}</label>
-					<textarea id="stepDescription-{{ i }}" formControlName="stepDescription" class="textarea"></textarea>
+					<textarea id="stepDescription-{{ i }}" formControlName="stepDescription" class="textarea" (change)="onStepDescriptionChange(i)"></textarea>
 					
 					<div class="upload-section">
 						<!-- Display previews and file names -->
@@ -56,7 +56,14 @@
 					</div>
 				</div>
 			</div>
-			<button (click)="addStep()" type="button" class="btn btn-cancel">add step</button>
+			<button
+				type="button"
+				class="btn btn-cancel"
+				(click)="addStep()"
+				[disabled]="!isStepValid"
+			>
+				add step
+			</button>
 			
 			<!-- Paints list -->
 			<app-paint-select

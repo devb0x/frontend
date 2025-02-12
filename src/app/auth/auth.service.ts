@@ -80,7 +80,8 @@ export class AuthService {
 		this.userId = null as any
 		clearTimeout(this.tokenTimer)
 		this.clearAuthData()
-		this.router.navigate(['/'])	}
+		this.router.navigate(['/']).then(() => {})
+	}
 
 	private saveAuthData(token: string, expirationDate: Date, userId: string) {
 		localStorage.setItem("token", token)

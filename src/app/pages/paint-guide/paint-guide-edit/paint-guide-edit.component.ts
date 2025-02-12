@@ -40,7 +40,8 @@ export class PaintGuideEditComponent {
 	uploadText: string = 'Add picture';
 
 	selectedPaints: PaintInterface[] = []
-	removedPictures: { pictureId: string, filename: string }[] = [];
+	removedPictures: { pictureId: string, filename: string }[] = []
+	isStepValid: boolean = true
 
 	constructor(
 		private fb: FormBuilder,
@@ -121,12 +122,30 @@ export class PaintGuideEditComponent {
 		return this.steps.at(stepIndex).get('pictures') as FormArray;
 	}
 
+	onStepDescriptionChange(index: number): void {
+		const step = this.guideForm.get(`steps.${index}`) as FormGroup;
+		if (step) {
+			const description = step.get('stepDescription')?.value;
+			this.isStepValid = !!(description && description.trim() !== '');
+		}
+	}
+
 	addStep(): void {
-		const stepForm = this.fb.group({
-			stepDescription: ['', Validators.required],
-			pictures: this.fb.array([])
-		});
-		this.steps.push(stepForm); // Add new step to FormArray
+		if (this.isStepValid) {
+			const stepForm = this.fb.group({
+				stepDescription: ['', Validators.required],
+				pictures: this.fb.array([]),
+			});
+			this.steps.push(stepForm);
+
+			// Start listening to the new step's description changes
+			const lastStep = this.steps.at(this.steps.length - 1) as FormGroup;
+			lastStep.get('stepDescription')?.valueChanges.subscribe((value) => {
+				this.isStepValid = value.trim() !== ''; // Update validity based on input
+			});
+
+			this.isStepValid = false
+		}
 	}
 
 	onFileSelected(event: Event, stepIndex: number): void {
@@ -213,7 +232,12 @@ export class PaintGuideEditComponent {
 				pictures: step.pictures.map((picture: any) => ({
 					fileName: picture.file?.name || picture.fileUrl,  // Handle new files & existing ones
 				})),
-			})),
+			}))
+			.filter((step: any) => step.stepDescription && step.stepDescription.trim() !== '')
+				.map((step: any, index: number) => ({
+					...step,
+					number: index + 1 // Reassign the numbers after filtering
+				})),
 			paintsUsed: this.selectedPaints
 		};
 

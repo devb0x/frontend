@@ -1,5 +1,5 @@
 <div *ngIf="paintGuide$">
-	<div>owner = {{ paintGuide$.ownerId?.username }}</div>
+	<div>owner = {{ paintGuide$.ownerId.username }}</div>
 	<h3>{{ paintGuide$.title }}</h3>
 	<div *ngFor="let step of paintGuide$.steps">
 		<p>{{ step.stepDescription }}</p>
