@@ -28,7 +28,11 @@ export class PaintSelectComponent {
 			.get('../assets/paints-list.json')
 			.subscribe(
 				(data: any) => {
-					this.paints = data.paints;
+					// this.paints = data.paints;
+					this.paints = data.paints.map((paintType: any) => ({
+						...paintType,
+						paints: [...paintType.paints].sort((a: string, b: string) => a.localeCompare(b))
+					}));
 				},
 				(error: any) => {
 					console.error('Error fetching JSON data:', error);

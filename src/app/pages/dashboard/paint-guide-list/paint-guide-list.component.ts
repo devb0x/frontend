@@ -41,7 +41,6 @@ export class PaintGuideListComponent {
 			.subscribe(
 				(paintGuides: any) => {
 					this.paintGuides = paintGuides
-					console.log(this.paintGuides)
 				},
 				(error: HttpErrorResponse) => {
 					console.error(error)

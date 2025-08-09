@@ -1,0 +1,39 @@
+h2 {
+	text-align: center;
+}
+
+.paint-guide-steps-wrapper {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap: 2em;
+	max-width: 900px;
+	margin-inline: auto;
+	/*outline: 1px solid red;*/
+}
+
+.paint-guide-step {
+	background-color: #f8f5f0;
+	padding: 1em;
+	outline: 1px solid var(--darkOrange);
+	border-radius: 2px;
+}
+
+.paint-guide-step > div {
+	display: flex;
+	gap: 1em;
+}
+
+.paint-guide-step > p {
+	margin: 1em 0 0;
+}
+
+.img-wrapper {
+	height: 250px;
+}
+
+.img-wrapper > img {
+	height: 100%;
+	max-height: 100%;
+	outline: 1px solid var(--lightOrange);
+}

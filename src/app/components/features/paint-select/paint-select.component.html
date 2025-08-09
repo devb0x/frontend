@@ -4,7 +4,7 @@
 	<div *ngFor="let paintType of paints" class="paint-section">
 		<h3>{{ paintType.type }} Paints</h3>
 		
-		<!-- Searchable dropdown using Angular Material or similar libraries -->
+		<!-- Searchable dropdown -->
 		<select [name]="paintType.type" [id]="paintType.type" #selectElement>
 			<option *ngFor="let name of paintType.paints" [value]="name">
 				{{ name }}

@@ -1,7 +1,22 @@
 <div *ngIf="paintGuide$">
 	<div>owner = {{ paintGuide$.ownerId.username }}</div>
-	<h3>{{ paintGuide$.title }}</h3>
-	<div *ngFor="let step of paintGuide$.steps">
-		<p>{{ step.stepDescription }}</p>
+	<h2>{{ paintGuide$.title }}</h2>
+	<div *ngIf="hasValidPaints(paintGuide$.paintsUsed)">
+		<h4>Paints Used:</h4>
+		<div *ngFor="let group of paintGuide$.paintsUsed">
+			<div *ngFor="let paint of group">
+				<p>{{ paint.name }} <small>({{ paint.brand }} - {{ paint.type }})</small></p>
+			</div>
+		</div>
+	</div>
+	<div class="paint-guide-steps-wrapper">
+		<div *ngFor="let step of paintGuide$.steps" class="paint-guide-step">
+			<div *ngIf="step.pictures && step.pictures.length > 0">
+				<div *ngFor="let picture of step.pictures" class="img-wrapper">
+					<img [src]="picture.fileUrl" alt="">
+				</div>
+			</div>
+			<p>{{ step.stepDescription }}</p>
+		</div>
 	</div>
 </div>

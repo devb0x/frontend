@@ -15,8 +15,8 @@ import { PaintInterface } from "../../../models/paint.interface"
 
 interface PaintGuideResponse {
 	message?: string;
-	paintGuide?: any; // You can replace `any` with a more specific type
-	uploadError?: boolean; // 👈 Optional property
+	paintGuide?: any;
+	uploadError?: boolean;
 }
 
 @Component({
@@ -188,7 +188,13 @@ export class NewPaintGuideComponent {
 					...step,
 					number: index + 1 // Reassign the numbers after filtering
 				})),
-			paintsUsed: this.selectedPaints
+			// paintsUsed: this.selectedPaints
+
+			paintsUsed: this.selectedPaints.map(paint => ({
+				type: paint.type,
+				brand: paint.brand,
+				name: paint.name
+			}))
 		};
 
 		// Extract the files to upload

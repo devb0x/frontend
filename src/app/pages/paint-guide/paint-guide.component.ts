@@ -34,4 +34,12 @@ export class PaintGuideComponent {
 		});
 	}
 
+	hasValidPaints(paintsUsed: any): boolean {
+		if (!Array.isArray(paintsUsed)) return false;
+
+		// Flatten all subarrays and check if any item is not an empty string or "[]"
+		const flat = paintsUsed.flat();
+		return flat.some(paint => paint && paint !== '[]');
+	}
+
 }
