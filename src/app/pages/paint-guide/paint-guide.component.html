@@ -11,10 +11,10 @@
 	</div>
 	<div class="paint-guide-steps-wrapper">
 		<div *ngFor="let step of paintGuide$.steps" class="paint-guide-step">
-			<div *ngIf="step.pictures && step.pictures.length > 0">
-				<div *ngFor="let picture of step.pictures" class="img-wrapper">
+			<div *ngIf="step.pictures && step.pictures.length > 0" class="img-wrapper">
+				<ng-container *ngFor="let picture of step.pictures">
 					<img [src]="picture.fileUrl" alt="">
-				</div>
+				</ng-container>
 			</div>
 			<p>{{ step.stepDescription }}</p>
 		</div>

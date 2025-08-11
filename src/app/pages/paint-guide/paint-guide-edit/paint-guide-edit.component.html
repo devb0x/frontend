@@ -10,7 +10,7 @@
 			<input type="text" id="title" formControlName="title" class="input" required>
 			
 			<!-- Steps -->
-			<div formArrayName="steps" *ngIf="paintGuide$.steps">
+			<div formArrayName="steps" *ngIf="paintGuide$.steps" class="form-steps">
 				<div
 					*ngFor="let step of steps.controls
 					let stepIndex = index" [formGroupName]="stepIndex"
@@ -75,6 +75,21 @@
 				(paintSelected)="handlePaintSelected($event)"
 				(paintRemoved)="handlePaintRemoved($event)">
 			</app-paint-select>
+			
+			<div>
+				<h2>Gallery</h2>
+				<div class="gallery">
+					<ng-container *ngFor="let step of paintGuide$.steps">
+						<ng-container *ngFor="let pic of step.pictures">
+							<div class="gallery-item">
+								<img [src]="pic.fileUrl" [alt]="pic.fileName" style="width: 200px; height: auto;">
+								<button (click)="setThumbnail(pic._id, paintGuideId)">Set as Thumbnail</button>
+							</div>
+						</ng-container>
+					</ng-container>
+				</div>
+			</div>
+			
 			
 			<button type="submit" (click)="formSubmit()" class="btn btn-link">Save</button>
 		</form>

@@ -1,17 +1,21 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Router, RouterLink} from "@angular/router"
-import {ArmyInterface} from "../../../models/army.interface";
 import {Location, NgIf, NgFor } from "@angular/common";
-import {DropdownComponent} from "../../../layout/dropdown/dropdown.component";
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+
 import {environment} from "../../../../environments/environment";
+
+import {ArmyInterface} from "../../../models/army.interface";
+
 import {ImageUploadComponent} from "./image-upload/image-upload.component";
+import {DropdownComponent} from "../../../layout/dropdown/dropdown.component";
 import {ConfirmationModalComponent} from "../../../layout/confirmation-modal/confirmation-modal.component";
 import {NewMiniatureComponent} from "../../miniature/new-miniature/new-miniature.component";
-import {ToastService} from "../../../services/toast.service";
 import {MiniatureCardComponent} from "../../miniature/miniature-card/miniature-card.component";
 import {OverlayMenuComponent} from "../../../layout/overlay-menu/overlay-menu.component";
+
+import {ToastService} from "../../../services/toast.service";
 
 
 const BACKEND_URL = `${environment.apiUrl}/army/`

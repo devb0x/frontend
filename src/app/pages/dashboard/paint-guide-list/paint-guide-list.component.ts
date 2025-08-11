@@ -7,6 +7,7 @@ import { PaintGuideService } from "../../../services/paint-guide.service"
 
 import { PaintGuideInterface } from "../../../models/paint-guide.interface"
 
+import { SpinnerComponent } from "../../../layout/spinner/spinner.component"
 import { PaintGuideCardComponent } from "../../../layout/paint-guide-card/paint-guide-card.component"
 import { OverlayMenuComponent } from "../../../layout/overlay-menu/overlay-menu.component"
 
@@ -17,6 +18,7 @@ import { OverlayMenuComponent } from "../../../layout/overlay-menu/overlay-menu.
 		NgIf,
 		NgFor,
 		RouterLink,
+		SpinnerComponent,
 		PaintGuideCardComponent,
 		OverlayMenuComponent
 	],

@@ -1,6 +1,12 @@
-<div *ngIf="paintGuides" class="container">
-	<div *ngFor="let guide of paintGuides" class="card-wrapper">
+<div *ngIf="isLoading">
+	<app-spinner></app-spinner>
+</div>
+<div *ngIf="!isLoading" class="paint-guides-container">
+	<div *ngFor="let guide of paintGuides" class="paint-guide-card-wrapper">
 		<app-paint-guide-card [paintGuide]="guide"></app-paint-guide-card>
 		<app-overlay-menu [paintGuide]="guide"></app-overlay-menu>
+	</div>
+	<div *ngIf="paintGuides.length === 0">
+		No paint guide created yet..
 	</div>
 </div>

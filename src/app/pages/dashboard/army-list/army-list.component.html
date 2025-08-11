@@ -2,7 +2,7 @@
 	<app-spinner></app-spinner>
 </div>
 <div *ngIf="!isLoading" class="armies-container">
-	<div class="army-card-wrapper" *ngFor="let army of armies">
+	<div *ngFor="let army of armies" class="army-card-wrapper" >
 		<app-army-card [army]="army"></app-army-card>
 		<app-overlay-menu [army]="army"></app-overlay-menu>
 	</div>

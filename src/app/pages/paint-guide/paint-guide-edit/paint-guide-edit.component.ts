@@ -1,7 +1,10 @@
 import { Component } from '@angular/core'
 import { NgFor, NgIf } from "@angular/common"
+import { HttpClient, HttpHeaders } from "@angular/common/http"
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms"
 import { ActivatedRoute, Router, RouterLink } from "@angular/router"
+
+import { environment } from "../../../../environments/environment"
 
 import { PaintGuideInterface } from "../../../models/paint-guide.interface"
 import { PaintInterface } from "../../../models/paint.interface"
@@ -10,6 +13,8 @@ import { PaintGuideService } from "../../../services/paint-guide.service"
 import { ToastService } from "../../../services/toast.service"
 
 import { PaintSelectComponent } from "../../../components/features/paint-select/paint-select.component"
+
+const BACKEND_URL = `${environment.apiUrl}/paint-guide/`
 
 interface PaintGuideResponse {
 	message?: string
@@ -47,6 +52,7 @@ export class PaintGuideEditComponent {
 		private fb: FormBuilder,
 		private route: ActivatedRoute,
 		private router: Router,
+		private http: HttpClient,
 		private toastService: ToastService,
 		private paintGuideService: PaintGuideService
 	) {
@@ -284,5 +290,27 @@ export class PaintGuideEditComponent {
 	}
 
 
+	setThumbnail(pictureId: string, paintGuideId: string) {
 
+		const thumbnail: string = pictureId
+
+		const token = localStorage.getItem("token")
+		const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`)
+
+		this.http
+			.put(BACKEND_URL + `edit/thumbnail/${paintGuideId}`,
+				{ thumbnail },
+				{ headers }
+			)
+			.subscribe(
+				response => {
+					console.log('Set as thumbnail success', response)
+					this.toastService.showSuccess('Image set !')
+				},
+				error => {
+					console.log(error)
+					this.toastService.showError('Something was wrong..')
+				}
+			)
+	}
 }

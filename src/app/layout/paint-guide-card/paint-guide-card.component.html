@@ -1,10 +1,14 @@
-<div *ngIf="paintGuide" class="card">
-	<h3 class="card-title">
-		<a
-			[routerLink]="['/paint-guide', paintGuide._id]"
-			class="link"
-		>
-			{{ paintGuide.title }}
-		</a>
-	</h3>
+<div class="card" [class.unset-thumbnail]="!paintGuide?.thumbnailUrl">
+	<div class="card-thumbnail" *ngIf="paintGuide?.thumbnailUrl">
+		<img [src]="paintGuide?.thumbnailUrl" [alt]="paintGuide?.title">
+	</div>
+	<div class="card-text">
+		<h3 class="card-text__title">
+			{{ paintGuide?.title }}
+		</h3>
+	</div>
+	<a
+		[routerLink]="['/paint-guide', paintGuide?._id]"
+		class="card-link">
+	</a>
 </div>
