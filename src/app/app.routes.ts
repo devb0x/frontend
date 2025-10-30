@@ -29,6 +29,7 @@ import {NewPaintGuideComponent} from "./components/features/new-paint-guide/new-
 import {PaintGuideComponent} from "./pages/paint-guide/paint-guide.component";
 import {PaintGuideEditComponent} from "./pages/paint-guide/paint-guide-edit/paint-guide-edit.component";
 import {PaintGuideEditGuard} from "./pages/paint-guide/paint-guide-edit/paint-guide-edit.guard";
+import {PaintGuidesComponent} from "./pages/paint-guides/paint-guides.component";
 
 export const routes: Routes = [
 	{
@@ -144,6 +145,10 @@ export const routes: Routes = [
 	{
 		path: 'armies',
 		component: ArmiesComponent
+	},
+	{
+		path: 'paint-guides',
+		component: PaintGuidesComponent
 	},
 	{
 		path: 'search-results',

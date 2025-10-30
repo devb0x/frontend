@@ -1,0 +1,15 @@
+<div *ngIf="isLoading">
+	<app-spinner></app-spinner>
+</div>
+
+<ng-container *ngIf="!isLoading" class="paint-guides-container">
+	<p>paint-guides works!</p>
+	<app-paint-guide-card
+		*ngFor="let guide of paintGuides"
+		[paintGuide]="guide"
+	>
+	</app-paint-guide-card>
+	<ng-container *ngIf="paintGuides.length === 0">
+		No paint guide created yet...
+	</ng-container>
+</ng-container>

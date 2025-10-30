@@ -1,0 +1,7 @@
+@media screen and (min-width: 768px) {
+	.paint-guides-container {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+		gap: 30px;
+	}
+}

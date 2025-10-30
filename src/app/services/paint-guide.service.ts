@@ -27,6 +27,12 @@ export class PaintGuideService {
 		)
 	}
 
+	getAllPaintGuides(): Observable<any> {
+		return this.http.get<any>(
+			BACKEND_URL + `/paint-guide/all`
+		)
+	}
+
 	getUserPaintGuide(ownerId: string): Observable<any> {
 		if (!ownerId) {
 			throw new Error("UserId is required")
