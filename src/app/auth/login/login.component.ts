@@ -4,7 +4,9 @@ import {FormsModule, NgForm} from "@angular/forms"
 
 import {AuthService} from "../auth.service";
 import {Subscription} from "rxjs";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
+
+import { SpinnerComponent } from "../../layout/spinner/spinner.component"
 
 @Component({
 	selector: 'app-login',
@@ -12,7 +14,8 @@ import {RouterLink} from "@angular/router";
 	imports: [
 		NgIf,
 		FormsModule,
-		RouterLink
+		RouterLink,
+		SpinnerComponent
 	],
 	templateUrl: './login.component.html',
 	styleUrls: ['../auth.styles.css']
@@ -20,8 +23,9 @@ import {RouterLink} from "@angular/router";
 export class LoginComponent {
 	isLoading = false
 	private authStatusSub!: Subscription
+	private fallbackTimeout: any
 
-	constructor(public authService: AuthService) {}
+	constructor(public authService: AuthService, private router: Router) {}
 
 	ngOnInit() {
 		this.authStatusSub = this.authService.getAuthStatusListener().subscribe(
@@ -33,9 +37,24 @@ export class LoginComponent {
 
 	onLogin(form: NgForm) {
 		if (form.invalid) {
-			return
+			return;
 		}
-		this.isLoading = true
-		this.authService.login(form.value.email, form.value.password)
+
+		this.isLoading = true;
+
+		this.authService.login(form.value.email, form.value.password).subscribe({
+			next: () => {
+				this.isLoading = false;
+			},
+			error: (error: any) => {
+				this.isLoading = false;
+				if (error.name === 'TimeoutError') {
+					console.log('Login request timed out.');
+					this.router.navigate(['/login']).then(() => {});
+				}
+			}
+		});
 	}
+
+
 }

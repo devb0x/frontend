@@ -1,4 +1,4 @@
-<div class="container">
+<ng-container class="container" *ngIf="!isLoading">
 	<h1 class="auth-title">Log in</h1>
 	<form
 		method="post"
@@ -55,5 +55,8 @@
 		</div>
 	</div>
 	
-	
-</div>
+</ng-container>
+
+<ng-container *ngIf="isLoading">
+	<app-spinner />
+</ng-container>

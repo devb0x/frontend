@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core"
 import { HttpClient } from "@angular/common/http"
-import {catchError, Observable, Subject, throwError} from "rxjs"
+import {catchError, Observable, Subject, tap, throwError, timeout} from "rxjs"
 import { Router } from "@angular/router"
 
 import { AuthDataModel } from "./auth-data.model"
@@ -40,37 +40,78 @@ export class AuthService {
 		return this.http.get<any>(BACKEND_URL + `usernameTaken?username=${username}`)
 	}
 
+	// login(email: string, password: string) {
+	// 	const authData: AuthDataModel = {email: email, password: password}
+	// 	this.http
+	// 		.post<{token: string, expiresIn: number, userId: string}>(BACKEND_URL + "login", authData)
+	// 		.pipe(
+	// 			catchError(error => {
+	// 				console.log(error.error?.reason)
+	// 				if (error.status === 403 && error.error?.reason === "unverified") {
+	// 					this.router.navigate(['/register/verify-account'], { queryParams: { email } });
+	// 				} else if (error.status === 401) { // 401 for incorrect password
+	// 					this.loginError = true
+	// 				} else {
+	// 					this.loginError = true
+	// 				}
+	// 				return throwError(error);
+	// 			})
+	// 		)
+	// 		.subscribe(response => {
+	// 			this.token = response.token
+	// 			if (this.token) {
+	// 				const expiresInDuration = response.expiresIn
+	// 				this.setAuthTimer(expiresInDuration)
+	// 				this.isAuthenticated = true
+	// 				this.userId = response.userId
+	// 				this.authStatusListener.next(true)
+	// 				const now = new Date()
+	// 				const expirationDate = new Date(now.getTime() + expiresInDuration * 1000)
+	// 				this.saveAuthData(this.token, expirationDate, this.userId as string)
+	// 				this.router.navigate(['/dashboard']).then(() => {})
+	// 			}
+	// 		})
+	// }
+
 	login(email: string, password: string) {
-		const authData: AuthDataModel = {email: email, password: password}
-		this.http
-			.post<{token: string, expiresIn: number, userId: string}>(BACKEND_URL + "login", authData)
+		const authData: AuthDataModel = { email, password };
+
+		return this.http
+			.post<{ token: string; expiresIn: number; userId: string }>(
+				BACKEND_URL + 'login',
+				authData
+			)
 			.pipe(
-				catchError(error => {
-					console.log(error.error?.reason)
-					if (error.status === 403 && error.error?.reason === "unverified") {
-						this.router.navigate(['/register/verify-account'], { queryParams: { email } });
-					} else if (error.status === 401) { // 401 for incorrect password
-						this.loginError = true
-					} else {
-						this.loginError = true
+				timeout(20000), // milliseconds timeout
+				tap((response) => {
+					this.token = response.token;
+					if (this.token) {
+						const expiresInDuration = response.expiresIn;
+						this.setAuthTimer(expiresInDuration);
+						this.isAuthenticated = true;
+						this.userId = response.userId;
+						this.authStatusListener.next(true);
+						const now = new Date();
+						const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
+						this.saveAuthData(this.token, expirationDate, this.userId as string);
+						this.router.navigate(['/dashboard']);
 					}
-					return throwError(error);
+				}),
+				catchError((error) => {
+					// Handle timeout specifically
+					if (error.name === 'TimeoutError') {
+						console.error('⏳ Login request timed out.');
+					} else if (error.status === 403 && error.error?.reason === 'unverified') {
+						this.router.navigate(['/register/verify-account'], { queryParams: { email } });
+					} else if (error.status === 401) {
+						this.loginError = true;
+					} else {
+						this.loginError = true;
+					}
+
+					return throwError(() => error);
 				})
 			)
-			.subscribe(response => {
-				this.token = response.token
-				if (this.token) {
-					const expiresInDuration = response.expiresIn
-					this.setAuthTimer(expiresInDuration)
-					this.isAuthenticated = true
-					this.userId = response.userId
-					this.authStatusListener.next(true)
-					const now = new Date()
-					const expirationDate = new Date(now.getTime() + expiresInDuration * 1000)
-					this.saveAuthData(this.token, expirationDate, this.userId as string)
-					this.router.navigate(['/dashboard']).then(() => {})
-				}
-			})
 	}
 
 	logout() {
