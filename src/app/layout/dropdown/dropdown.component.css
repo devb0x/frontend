@@ -32,6 +32,7 @@
 .dropdown .content {
 	max-height: 0;
 	overflow: hidden;
+	white-space: pre-line;
 }
 
 /* When not collapsed, show the content */
