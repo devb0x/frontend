@@ -9,11 +9,52 @@ footer {
 }
 
 .footer {
-	width: 90%;
+	width: 100%;
+	max-width: 1200px;
 	padding-block: 2em;
 	margin-inline: auto;
+	margin: auto;
 	font-size: 11px;
 	color: var(--lightWhite);
 	margin-block: auto;
-	margin-left: 5%;
+	padding-inline: 48px;
+}
+
+.footer-list {
+	display: flex;
+	gap: 96px;
+	margin-bottom: 1.5rem;
+	margin-inline: auto;
+}
+
+.footer-list h4 {
+	font-size: 1.1rem;
+}
+
+.footer-list ul {
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.footer-list ul li a {
+	color: white;
+	text-decoration: none;
+	font-size: .9rem;
+}
+
+.footer-list ul li a:hover {
+	color: var(--lightOrange);
+}
+
+.footer-text {
+	margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+	.footer-list {
+		flex-direction: column;
+		gap: 24px;
+	}
 }
