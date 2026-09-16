@@ -10,7 +10,7 @@ footer {
 
 .footer {
 	width: 100%;
-	max-width: 1200px;
+	/*max-width: 1200px;*/
 	padding-block: 2em;
 	margin-inline: auto;
 	margin: auto;

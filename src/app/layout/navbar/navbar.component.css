@@ -5,7 +5,7 @@
 		max-height: var(--navbarHeight);
 	}
 	.navbar {
-		visibility: hidden;
+		display: none;
 	}
 	.mobile-navbar {
 		position: absolute;
@@ -52,7 +52,6 @@
 		align-items: center;
 	}
 	.nav-icon span {
-		/*width: 20px;*/
 		width: 50%;
 		height: 2px;
 		background-color: black;
@@ -208,6 +207,3 @@ li {
 .navbar-list .link.link-border__left {
 	border-left: 1px solid #8f8f8f;
 }
-
-
-

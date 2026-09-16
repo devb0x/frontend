@@ -34,17 +34,16 @@
 				</a>
 			</li>
 		</ul>
-		<app-search-bar></app-search-bar>
 	</nav>
-<!--	 mobile navbar -->
 	<div
 		(click)="toggleMobileNav()"
 		class="nav-icon"
 	>
-<!--		span for hamburger icon-->
+		<!--		span for hamburger icon-->
 		<span></span><span></span><span></span><span></span><span></span><span></span>
 	</div>
-
+	
+	<!--	 mobile navbar -->
 	<nav
 		class="mobile-navbar"
 		[ngClass]="{'display': mobileMenuOpen, 'hidden': !mobileMenuOpen }"
